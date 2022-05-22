@@ -10,9 +10,9 @@ const Navbar = ({children}) => {
         { name: 'About', to: '/about' },
     ]
     return (
-        <nav className=''>
-            <TopBar/>
-            <div class="drawer sticky top-0">
+        <nav className=' '>
+            {/* <TopBar/> */}
+            <div class="drawer">
                 <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content flex flex-col">
                     {/* Navbar  */}
