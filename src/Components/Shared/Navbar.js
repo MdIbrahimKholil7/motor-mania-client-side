@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import TopBar from './TopBar';
 
-const Navbar = () => {
+const Navbar = ({children}) => {
     const menu = [
         { name: 'Home', to: '/' },
         { name: 'Dashboard', to: '/dashboard' },
@@ -10,9 +10,9 @@ const Navbar = () => {
         { name: 'About', to: '/about' },
     ]
     return (
-        <nav>
+        <nav className=''>
             <TopBar/>
-            <div class="drawer">
+            <div class="drawer sticky top-0">
                 <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content flex flex-col">
                     {/* Navbar  */}
@@ -38,8 +38,8 @@ const Navbar = () => {
                                     )
                                 }
                                 <li>
-                                    <div class="dropdown dropdown-end dropdown-hover">
-                                        <label className='font-bold relative lg:text-[18px] xl:text-2xl shop' tabindex="0">Shop</label>
+                                    <div class="dropdown dropdown-end dropdown-hover p-0 pr-4">
+                                        <label className='font-bold relative lg:text-[18px] xl:text-2xl shop ' tabindex="0">Shop</label>
                                         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-36">
                                             <li><a>Item 1</a></li>
                                             <li><a>Item 2</a></li>
@@ -51,6 +51,7 @@ const Navbar = () => {
                     </div>
                     {/* Page content here 
                     Content */}
+                    {children}
                 </div>
                 <div class="drawer-side">
                     <label for="my-drawer-3" class="drawer-overlay"></label>
