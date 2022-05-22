@@ -5,7 +5,7 @@ import PrimaryBtn from '../Shared/PrimaryBtn';
 const HeaderProduct = () => {
     return (
         <div className='grid lg:grid-cols-2  gap-9 w-full px-4 my-9'>
-            <div class="flex bg-[#f7f2f2] shadow-xl">
+            <div class="flex bg-[#f7f2f2] shadow-xl card card-side">
                 <div class="card-body px-4  sm:px-4  items-start justify-center">
                     <h2 class="text-[15px]">Power tools of next level</h2>
                     <p className=' flex-grow-0 font-bold text-xs sm:text-2xl mb-7'>Cruiser Engine</p>
