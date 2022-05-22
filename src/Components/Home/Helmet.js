@@ -7,9 +7,11 @@ import bread from '../../assets/images/breadcrumbs.jpg'
 import PrimaryBtn from '../Shared/PrimaryBtn';
 import fetcher from '../../api/fetcher';
 import HelmetCard from './HelmetCard';
+import { useRef } from 'react';
 
 const Helmet = () => {
     const [helmet, setHelmet] = useState([])
+    const slideRef = useRef(null)
     const url = `http://localhost:5000/get-helmet`
     useEffect(() => {
         (async () => {
@@ -17,7 +19,7 @@ const Helmet = () => {
             setHelmet(data)
         })()
     }, [])
-    console.log(helmet)
+    console.log(slideRef.current)
     let settings = {
         arrows: true,
         infinite: true,
@@ -57,7 +59,7 @@ const Helmet = () => {
     const chevronIcon = (<div className='flex '>
         <div class="avatar placeholder mr-3">
             <div class="bg-primary text-white rounded-full w-8">
-                <div>
+                <div className='cursor-pointer' onClick={() => slideRef.current.slickNext()}>
                     <ChevronLeftIcon
                         className='w-7 '
                     />
@@ -66,8 +68,8 @@ const Helmet = () => {
         </div>
 
         <div class="avatar placeholder">
-            <div class="bg-primary text-white rounded-full w-8">
-                <div>
+            <div class="bg-primary text-white rounded-full w-8" onClick={() => slideRef.current.slickPrev()}>
+                <div className='cursor-pointer'>
                     <ChevronRightIcon
                         className='w-7 '
                     />
@@ -130,6 +132,7 @@ const Helmet = () => {
                     <div className='bg-white'>
                         <Slider {...settings}
                             autoplay={false}
+                            ref={slideRef}
                         >
                             {
                                 helmet && helmet.map(elem => <HelmetCard

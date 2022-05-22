@@ -33,3 +33,16 @@
   width: 100%;
   background: rgba(0,0,0,0.7);
 }
+.card-parent{
+  transition: .6s ease ;
+}
+.order-btn{
+  transition: .3s;
+  left: 29%;
+  z-index: -1;
+}
+.card-parent:hover .order-btn{
+  bottom: 80px;
+  left:29%;
+  z-index: 1;
+}
