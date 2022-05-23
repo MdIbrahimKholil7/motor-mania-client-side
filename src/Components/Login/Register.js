@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import illustration from '../../assets/images/Illustration.png'
-import './Login.css'
 import Social from './Social';
 const Login = () => {
     // bg-[#E5E5E5]
@@ -13,27 +12,23 @@ const Login = () => {
                         <div class="py-7">
                             <div class="lg:px-5 px-5 w-full">
                                 <form className=''>
-                                    <h1 className='text-center font font-bold text-2xl mb-9 text-[#6358DC]'>Please Login</h1>
+                                    <h1 className='text-center font font-bold text-2xl mb-9 text-[#6358DC]'>Register</h1>
                                     <div className='relative mb-9'>
                                         <input type="text" class="write w-full odd:" placeholder></input>
                                         <label class="hello">Username</label>
                                         <span class="enter"></span>
                                     </div>
-                                    <div className='relative mb-9'>
-                                        <input type="text" class="write w-full odd:" placeholder></input>
-                                        <label class="hello">Confirm Password</label>
-                                        <span class="enter"></span>
-                                    </div>
+                                   
                                     <div className='relative mb-9'>
                                         <input type="text" class="write w-full odd:" placeholder></input>
                                         <label class="hello">Password</label>
                                         <span class="enter"></span>
                                     </div>
-                                    
+                                    <p className='my-4 text-[#6358DC] font-[500]'>Forgot Password</p>
                                     <div class="form-control mt-6">
                                         <button class="btn hover:bg-[#6358DC] bg-[#6358DC] text-white">Login</button>
                                     </div>
-                                    <p className='py-3'>Already have an account ? <Link className='text-[#6358DC] cursor-pointer' to='/register'>Register</Link></p>
+                                    <p className='py-3'>Don't have an account ? <Link className='text-[#6358DC] cursor-pointer' to='/register'>Register</Link></p>
                                     <Social/>
                                 </form>
                             </div>

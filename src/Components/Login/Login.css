@@ -19,7 +19,7 @@ input[type=text]:focus~.hello {
 
 input[type=text]:focus~.enter {
     /* background-color: #0F1F7A; */
-    background-color: #E52727;
+    background-color: #6358DC;
     position: absolute;
     content: ' ';
     height: 1px;

@@ -3,6 +3,7 @@ import './App.css';
 import Home from './Components/Home/Home';
 import Navbar from './Components/Shared/Navbar';
 import publicRoute from './Components/publicRoute/publicRoute'
+import Register from './Components/Login/Register'
 function App() {
   console.log(publicRoute)
   return (
@@ -17,6 +18,7 @@ function App() {
             element={<Component />}
           />)
           }
+          <Route path='/register' element={<Register/>}/>
           {/* public route  */}
           
         </Routes>

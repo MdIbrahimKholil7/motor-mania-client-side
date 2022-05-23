@@ -9,6 +9,7 @@ const Navbar = ({children}) => {
         { name: 'Blog', to: '/blog' },
         { name: 'About', to: '/about' },
         { name: 'Login', to: '/login' },
+        
     ]
     return (
         <nav className=' '>
