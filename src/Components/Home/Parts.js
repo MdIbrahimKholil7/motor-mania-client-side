@@ -50,7 +50,7 @@ const Parts = () => {
                     slideRef={slideRef}
                     helmet={allParts}
                     show={4}
-                    
+                    auto={true}
                     />
                 }
             </div>

@@ -91,6 +91,7 @@ const Helmet = () => {
                         slideRef={slideRef}
                         helmet={helmet}
                         show={3}
+                        auto={false}
                         />
                     </div>
 

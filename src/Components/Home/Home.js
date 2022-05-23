@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from './Banner';
+import Bussiness from './Bussiness';
 import Engine from './Engine';
 import HeaderProduct from './HeaderProduct';
 import Headlight from './Headlight';
@@ -19,6 +20,7 @@ const Home = () => {
             <Helmet/>
             <Headlight/>
             <Parts/>
+            <Bussiness/>
         </div>
     );
 };

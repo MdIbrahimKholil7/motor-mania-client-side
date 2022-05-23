@@ -3,7 +3,8 @@ import Slider from 'react-slick/lib/slider';
 import HelmetCard from './HelmetCard';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const SliderProduct = ({helmet,slideRef,show}) => {
+const SliderProduct = ({helmet,slideRef,show,auto}) => {
+    console.log(auto)
     let settings = {
         arrows: true,
         infinite: true,
@@ -43,8 +44,9 @@ const SliderProduct = ({helmet,slideRef,show}) => {
     return (
         <div>
             <Slider {...settings}
-                autoplay={false}
+                autoplay={auto ? auto:false}
                 ref={slideRef}
+            
             >
                 {
                     helmet && helmet.map(elem => <HelmetCard
