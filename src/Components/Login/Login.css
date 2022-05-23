@@ -1,0 +1,45 @@
+
+.hello {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    font-size: 18px;
+    font-weight: 200;
+    color: #cecece;
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+input[type=text]:focus~.hello {
+    display: block;
+    color: black;
+    top: -20px;
+    font-size: 14px;
+}
+
+input[type=text]:focus~.enter {
+    /* background-color: #0F1F7A; */
+    background-color: #E52727;
+    position: absolute;
+    content: ' ';
+    height: 1px;
+    right: 0%;
+    top: 39px;
+    width: 100%;
+    /* transform: scaleX(5) */
+}
+
+.enter {
+    transition: all ease 0.5s;
+    width: 10.1%;
+    transform: scaleX(1)
+}
+
+textarea,
+input {
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid #cecece;
+    height: 40px;
+    width: 50%;
+}

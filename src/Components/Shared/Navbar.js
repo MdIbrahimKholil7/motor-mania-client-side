@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import TopBar from './TopBar';
 
 const Navbar = ({children}) => {
@@ -8,6 +8,7 @@ const Navbar = ({children}) => {
         { name: 'Dashboard', to: '/dashboard' },
         { name: 'Blog', to: '/blog' },
         { name: 'About', to: '/about' },
+        { name: 'Login', to: '/login' },
     ]
     return (
         <nav className=' '>
@@ -28,13 +29,13 @@ const Navbar = ({children}) => {
                             <ul class="menu menu-horizontal items-center gap-x-3">
                                 {/* Navbar menu content here  */}
                                 {
-                                    menu.map(({ name, to }, index) => <NavLink
+                                    menu.map(({ name, to }, index) => <Link
                                         key={index}
                                         to={to}>
                                         <li className='font-bold lg:text-[18px] xl:text-2xl'>
                                             {name}
                                         </li>
-                                    </NavLink>
+                                    </Link>
                                     )
                                 }
                                 <li>
@@ -58,13 +59,13 @@ const Navbar = ({children}) => {
                     <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
                         {/* Sidebar content here  */}
                         {
-                            menu.map(({ name, to }, index) => <NavLink
+                            menu.map(({ name, to }, index) => <Link
                                 key={index}
                                 to={to}>
                                 <li>
                                     {name}
                                 </li>
-                            </NavLink>
+                            </Link>
                             )
                         }
 
