@@ -9,8 +9,8 @@
   font-size: 15px;
   right: -17px;
   top: 1px;
-  /* color: #f7f2f2; */
-  color: #f6c80edf;
+  
+
 }
 
 .polygon{
@@ -42,7 +42,7 @@
   z-index: -1;
 }
 .card-parent:hover .order-btn{
-  bottom: 80px;
+  bottom: 88px;
   left:29%;
   z-index: 1;
 }

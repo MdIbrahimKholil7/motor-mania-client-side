@@ -4,7 +4,7 @@ const TopBar = () => {
     return (
         <div >
             <div class=" w-full px-4">
-                <div class=" pt-4 card rounded-box flex flex-row justify-evenly items-center">
+                <div class=" pt-4  rounded-box flex flex-row justify-evenly items-center">
                     <div class="form-control">
                         <label class="input-group ">
                             <input type="text" placeholder="Search" class="input input-bordered focus:outline-none" />
@@ -39,7 +39,7 @@ const TopBar = () => {
                     </div>
                 </div>
             </div>
-            <div class="divider m-0 pt-3"></div>
+            {/* <div class="divider m-0 pt-3"></div> */}
         </div>
     );
 };

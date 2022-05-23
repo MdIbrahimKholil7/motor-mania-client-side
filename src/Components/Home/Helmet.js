@@ -1,61 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import bread from '../../assets/images/breadcrumbs.jpg'
 import PrimaryBtn from '../Shared/PrimaryBtn';
 import fetcher from '../../api/fetcher';
-import HelmetCard from './HelmetCard';
 import { useRef } from 'react';
+import SliderProduct from './SliderProduct';
+import SliderController from './SliderController';
 
 const Helmet = () => {
     const [helmet, setHelmet] = useState([])
     const slideRef = useRef(null)
-    const url = `http://localhost:5000/get-helmet`
     useEffect(() => {
         (async () => {
             const { data } = await fetcher('get-helmet')
             setHelmet(data)
         })()
     }, [])
-    console.log(slideRef.current)
-    let settings = {
-        arrows: true,
-        infinite: true,
-        speed: 500,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        cssEase: "linear",
-
-        /* mobileFirst: true, */
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 968,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 640,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                }
-            },
-        ]
-    };
-
     const chevronIcon = (<div className='flex '>
         <div class="avatar placeholder mr-3">
             <div class="bg-primary text-white rounded-full w-8">
@@ -81,17 +42,12 @@ const Helmet = () => {
 
     return (
         <div className='py-9 mx-7'>
-            <div className='flex justify-between items-center  mb-9'>
-                <div className=''>
-                    <h1 className='text-3xl font-bold font '>New Style Helmet</h1>
-                </div>
-                <div className='md:block hidden'>
-                    {
-                        chevronIcon
-                    }
-                </div>
-            </div>
-
+            {
+                <SliderController
+                title={'New Style Helmet'}
+                chevronIcon={chevronIcon}
+                />
+            }
             <div className='md:flex justify-between items-center'>
                 <div
                     style={{
@@ -130,17 +86,12 @@ const Helmet = () => {
                         </div>
                     </div>
                     <div className='bg-white'>
-                        <Slider {...settings}
-                            autoplay={false}
-                            ref={slideRef}
-                        >
-                            {
-                                helmet && helmet.map(elem => <HelmetCard
-                                    key={elem.key}
-                                    elem={elem}
-                                />)
-                            }
-                        </Slider>
+                       
+                        <SliderProduct
+                        slideRef={slideRef}
+                        helmet={helmet}
+                        show={3}
+                        />
                     </div>
 
                 </div>

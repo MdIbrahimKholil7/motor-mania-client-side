@@ -4,6 +4,7 @@ import Engine from './Engine';
 import HeaderProduct from './HeaderProduct';
 import Headlight from './Headlight';
 import Helmet from './Helmet';
+import Parts from './Parts';
 import Services from './Services';
 import ShippingDetails from './ShippingDetails';
 
@@ -17,6 +18,7 @@ const Home = () => {
             <Engine/>
             <Helmet/>
             <Headlight/>
+            <Parts/>
         </div>
     );
 };

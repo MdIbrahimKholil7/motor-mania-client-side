@@ -1,17 +1,18 @@
 import { StarIcon } from '@heroicons/react/solid';
 import React from 'react';
 
-const HelmetCard = ({ elem }) => {
-    const { productName, quantity, img, price, ratings } = elem || {}
+const HelmetCard = ({ elem, height }) => {
+    const { productName, img, price, ratings } = elem || {}
+    console.log(height)
     return (
         <div>
-            <div class="card max-w-lg  shadow-md mx-2 h-auto p-0 my-2 cursor-pointer relative overflow-hidden card-parent duration-300 ease-in">
+            <div class={`card max-w-lg  shadow-md mx-2  p-0 my-2 cursor-pointer relative overflow-hidden card-parent duration-300 ease-in ${height ? `h-[${height}]` : 'h-auto'}`}>
                 <figure class="">
-                    <img className='w-40' src={img} alt={productName} class="rounded-xl" />
+                    <img className='w-40 h-36' src={img} alt={productName} class="rounded-xl" />
                 </figure>
-                <div class="card-body  p-2">
+                <div class="card-body absolute bottom-0 p-2">
                     <h2 class="card-title">{productName}</h2>
-                    <div className='flex justify-between items-center w-full'>
+                    <div className='flex justify-between items-center w-full pb-3 '>
                         <h1>${price}</h1>
                         <div className='flex'>
                             {
