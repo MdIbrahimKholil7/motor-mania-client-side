@@ -58,3 +58,17 @@
 .img-card{
   width: 150px ;
 }
+.register{
+  height: 100vh;
+  background: #6358DC;
+  clip-path: polygon(0 0, 100% 0%, 69% 100%, 0% 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+@media screen and (max-width:998px) {
+  .register{
+    display: none ;
+  }
+}

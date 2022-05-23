@@ -1,10 +1,62 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import illustration from '../../assets/images/Illustration.png'
 import './Login.css'
 import Social from './Social';
+import { useForm } from "react-hook-form";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase_init';
+import Loading from '../Shared/Loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
-    // bg-[#E5E5E5]
+    const [logError, setLogError] = useState('')
+    const [email, setEmail] = useState('')
+    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
+        auth
+    );
+    const navigate = useNavigate()
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    useEffect(() => {
+        if (error) {
+            switch (error?.code) {
+                case 'auth/user-not-found':
+                    setLogError('User not found');
+                    break;
+                case 'auth/invalid-email':
+                    setLogError('Email is not valid');
+                    break;
+                case 'auth/invalid-password':
+                    setLogError('Wrong password');
+                    break;
+                default:
+                    setLogError(`Something went wrong`);
+            }
+        }
+    }, [error])
+    if (loading) {
+        return <Loading />
+    }
+    if (user) {
+        navigate('/')
+    }
+
+    const handleReset = () => {
+        console.log('click')
+        sendPasswordResetEmail(email)
+        toast('Password reset send on your email')
+    }
+
+    const onSubmit = (data) => {
+        setLogError('')
+        signInWithEmailAndPassword(data.email, data.password)
+    }
     return (
         <div>
             <div class="hero min-h-screen bg-base-200">
@@ -12,29 +64,72 @@ const Login = () => {
                     <div class="card flex-shrink-0 w-full sm:w-[440px] shadow-2xl bg-base-100">
                         <div class="py-7">
                             <div class="lg:px-5 px-5 w-full">
-                                <form className=''>
+                                <form className='' onSubmit={handleSubmit(onSubmit)}>
                                     <h1 className='text-center font font-bold text-2xl mb-9 text-[#6358DC]'>Please Login</h1>
                                     <div className='relative mb-9'>
-                                        <input type="text" class="write w-full odd:" placeholder></input>
-                                        <label class="hello">Username</label>
+                                        <input
+                                            type="email"
+                                            name='email'
+                                            class="write w-full odd:"
+                                            placeholder
+
+                                            {...register("email", {
+                                                required: {
+                                                    value: true,
+                                                    message: 'Email is Required'
+                                                },
+                                                pattern: {
+                                                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                                    message: 'Please provide a valid Email'
+                                                },
+                                                onChange: e => setEmail(e.target.value)
+
+                                            })}
+                                        />
+                                        <label class="hello">Email</label>
                                         <span class="enter"></span>
+                                        <label className="label">
+                                            {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                            {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                        </label>
                                     </div>
+
                                     <div className='relative mb-9'>
-                                        <input type="text" class="write w-full odd:" placeholder></input>
-                                        <label class="hello">Confirm Password</label>
-                                        <span class="enter"></span>
-                                    </div>
-                                    <div className='relative mb-9'>
-                                        <input type="text" class="write w-full odd:" placeholder></input>
+                                        <input
+                                            type="password"
+                                            class="write w-full odd:"
+                                            placeholder
+                                            {...register("password", {
+                                                required: {
+                                                    value: true,
+                                                    message: 'Please enter your password'
+                                                },
+                                                minLength: {
+                                                    value: 6,
+                                                    message: 'Password should be greater than 6'
+                                                }
+                                            })}
+                                        />
                                         <label class="hello">Password</label>
                                         <span class="enter"></span>
+                                        <label className="label">
+                                            {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                            {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+
+                                        </label>
                                     </div>
-                                    
+                                    <p
+                                        onClick={handleReset}
+                                        className='my-4 text-[#6358DC] cursor-pointer font-[500]'
+                                    >Forgot Password</p>
+                                    {
+                                        logError && <p className='text-red-500  text-center mb-[-4px]'>{logError}</p>
+                                    }
                                     <div class="form-control mt-6">
                                         <button class="btn hover:bg-[#6358DC] bg-[#6358DC] text-white">Login</button>
                                     </div>
                                     <p className='py-3'>Already have an account ? <Link className='text-[#6358DC] cursor-pointer' to='/register'>Register</Link></p>
-                                    <Social/>
+                                    <Social />
                                 </form>
                             </div>
                         </div>
@@ -44,6 +139,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
