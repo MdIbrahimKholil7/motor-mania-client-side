@@ -4,8 +4,8 @@ import { FaFlag, FaUserFriends, FaCompass, FaRegBookmark } from 'react-icons/fa'
 const Bussiness = () => {
     return (
         <div>
-            <div class="stats rounded-none py-9 shadow gradient w-full">
-                <div class="stat">
+            <div class=" grid sm:grid-cols-2 md:grid-cols-4 justify-items-center rounded-none py-9 shadow gradient w-full px-9">
+                <div class="stat pl-20 md:pl-0">
                     < FaFlag
                         className='text-3xl text-center'
                     />
@@ -15,7 +15,7 @@ const Bussiness = () => {
 
                 </div>
 
-                <div class="stat">
+                <div class="stat pl-20 md:pl-0">
                     < FaCompass
                         className='text-3xl text-center'
                     />
@@ -24,7 +24,7 @@ const Bussiness = () => {
 
                 </div>
 
-                <div class="stat">
+                <div class="stat pl-20 md:pl-0 ">
                     < FaUserFriends
                         className='text-3xl text-center'
                     />
@@ -32,7 +32,7 @@ const Bussiness = () => {
                     <div class="stat-value">1000K +</div>
 
                 </div>
-                <div class="stat items-center">
+                <div class="stat pl-20 md:pl-0 items-center">
                     < FaRegBookmark
                         className='text-3xl text-center'
                     />

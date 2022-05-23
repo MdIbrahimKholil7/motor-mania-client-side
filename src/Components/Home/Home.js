@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Shared/Footer';
 import Banner from './Banner';
 import Bussiness from './Bussiness';
 import Engine from './Engine';
@@ -8,6 +9,7 @@ import Helmet from './Helmet';
 import Parts from './Parts';
 import Services from './Services';
 import ShippingDetails from './ShippingDetails';
+import Testimonials from './Testimonials';
 
 const Home = () => {
     return (
@@ -21,6 +23,8 @@ const Home = () => {
             <Headlight/>
             <Parts/>
             <Bussiness/>
+            <Testimonials/>
+            <Footer/>
         </div>
     );
 };

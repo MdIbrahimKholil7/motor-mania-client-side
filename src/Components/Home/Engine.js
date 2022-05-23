@@ -4,7 +4,7 @@ import engine from '../../assets/images/engine.png'
 import engineLogo from '../../assets/images/logo-engine.png'
 const Engine = () => {
     return (
-        <div class="hero min-h-screen mt-12">
+        <div class="hero mt-40 mb-20">
             <div class="hero-content justify-between flex-col lg:flex-row-reverse">
                 <img src={engine} class="lg:w-[300px] w-[240px] object-cover  rounded-lg " alt='engine' />
                 <div className='md:w-[50%]'>
