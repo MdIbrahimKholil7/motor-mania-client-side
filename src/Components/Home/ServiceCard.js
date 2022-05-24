@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ServiceCard = ({ elem }) => {
     const [detail, setDetail] = useState('')
     const [lessDetails, setLessDetail] = useState('')
     const [open,setOpen]=useState(true)
-    const { img, servicenName, price, quantity, desc } = elem
-
+    const { img, servicenName, price, quantity, desc,_id } = elem
+    const navigate=useNavigate()
     useEffect(() => {
         const details = desc.length > 70 ? `${desc.slice(0, 69)}...` : desc
         setLessDetail(details)
@@ -36,7 +37,7 @@ const ServiceCard = ({ elem }) => {
                     <p>Available:{quantity}</p>
                     <p>Price:${price}</p>
                     <div class="card-actions">
-                        <button class="btn btn-primary">Order</button>
+                        <button onClick={()=>navigate(`/privateRoute/${_id}`)} class="btn btn-primary">Order</button>
                     </div>
                 </div>
             </div>

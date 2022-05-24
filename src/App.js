@@ -4,6 +4,7 @@ import Home from './Components/Home/Home';
 import Navbar from './Components/Shared/Navbar';
 import publicRoute from './Components/publicRoute/publicRoute'
 import Register from './Components/Login/Register'
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 function App() {
   console.log(publicRoute)
   return (
@@ -20,7 +21,7 @@ function App() {
           }
           <Route path='/register' element={<Register/>}/>
           {/* public route  */}
-          
+          <Route path='/privateRoute/:id' element={<PrivateRoute/>}></Route>
         </Routes>
       </Navbar>
     </div>
