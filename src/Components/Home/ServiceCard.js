@@ -34,8 +34,8 @@ const ServiceCard = ({ elem }) => {
                     <h2 class="card-title">{servicenName}</h2>
                     <p className='p-0'>{detail}</p>
                     <>{open ? showMorebtn:showLessbtn}</>
-                    <p>Available:{quantity}</p>
-                    <p>Price:${price}</p>
+                    <p className='p-0'>Available:{quantity}</p>
+                    <p className='p-0'>Price:${price}</p>
                     <div class="card-actions">
                         <button onClick={()=>navigate(`/privateRoute/${_id}`)} class="btn btn-primary">Order</button>
                     </div>

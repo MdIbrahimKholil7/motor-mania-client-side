@@ -1,25 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import illustration from '../../assets/images/Illustration.png'
 import './Login.css'
 import Social from './Social';
 import { useForm } from "react-hook-form";
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase_init';
 import Loading from '../Shared/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
     const [logError, setLogError] = useState('')
+    const [user]=useAuthState(auth)
     const [email, setEmail] = useState('')
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
         auth
     );
+    const location = useLocation()
     const navigate = useNavigate()
+    let from = location.state?.from?.pathname || "/";
     const [
         signInWithEmailAndPassword,
-        user,
+        users,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
@@ -44,7 +47,7 @@ const Login = () => {
         return <Loading />
     }
     if (user) {
-        navigate('/')
+        navigate(from, { replace: true })
     }
 
     const handleReset = () => {
@@ -56,6 +59,7 @@ const Login = () => {
     const onSubmit = (data) => {
         setLogError('')
         signInWithEmailAndPassword(data.email, data.password)
+        reset()
     }
     return (
         <div>
@@ -128,7 +132,7 @@ const Login = () => {
                                     <div class="form-control mt-6">
                                         <button class="btn hover:bg-[#6358DC] bg-[#6358DC] text-white">Login</button>
                                     </div>
-                                    <p className='py-3'>Already have an account ? <Link className='text-[#6358DC] cursor-pointer' to='/register'>Register</Link></p>
+                                    <p className='py-3'>Already have an account ? <Link state={{ from: from }} replace className='text-[#6358DC] cursor-pointer' to='/register'>Register</Link></p>
                                     <Social />
                                 </form>
                             </div>

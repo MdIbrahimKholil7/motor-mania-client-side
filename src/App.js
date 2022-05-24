@@ -5,6 +5,12 @@ import Navbar from './Components/Shared/Navbar';
 import publicRoute from './Components/publicRoute/publicRoute'
 import Register from './Components/Login/Register'
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Footer from './Components/Shared/Footer';
+import Dashboard from './Components/PublicRoutes/Dashboard';
+import MyOrder from './Components/PublicRoutes/MyOrder';
+import MyProfile from './Components/PublicRoutes/MyProfile';
+import AddReview from './Components/PublicRoutes/AddReview';
+import RequireAuth from './Components/Shared/RequireAuth'
 function App() {
   console.log(publicRoute)
   return (
@@ -14,15 +20,24 @@ function App() {
           {/* public route  */}
           {
             publicRoute.map(({ Component, path }, index) => <Route
-            key={index}
-            path={path}
-            element={<Component />}
-          />)
+              key={index}
+              path={path}
+              element={<Component />}
+            />)
           }
-          <Route path='/register' element={<Register/>}/>
+          <Route path='/dashBoard' element={<Dashboard />}>
+            <Route index element={<MyProfile />} />
+            <Route path='myOrder' element={<MyOrder />} />
+            <Route path='addReview' element={<AddReview />} />
+          </Route>
+          <Route path='/register' element={<Register />} />
           {/* public route  */}
-          <Route path='/privateRoute/:id' element={<PrivateRoute/>}></Route>
+          <Route path='/privateRoute/:id' element={<RequireAuth>
+            <PrivateRoute />
+          </RequireAuth>}></Route>
+
         </Routes>
+        <Footer />
       </Navbar>
     </div>
   );

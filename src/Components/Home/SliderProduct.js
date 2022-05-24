@@ -4,7 +4,6 @@ import HelmetCard from './HelmetCard';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const SliderProduct = ({helmet,slideRef,show,auto}) => {
-    console.log(auto)
     let settings = {
         arrows: true,
         infinite: true,

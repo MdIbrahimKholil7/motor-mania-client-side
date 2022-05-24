@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Social from './Social';
 import { useForm } from "react-hook-form";
 import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -11,7 +11,9 @@ const Login = () => {
     const [passError,setPassError]=useState('')
     const [user]=useAuthState(auth)
     const { register, handleSubmit, watch, formState: { errors },reset } = useForm();
+    const location=useLocation()
     const navigate=useNavigate()
+    let from = location.state?.from || "/";
     const [
         createUserWithEmailAndPassword,
         users,
@@ -26,7 +28,7 @@ const Login = () => {
         return
     }
     if(user){
-        navigate('/')
+        navigate(from,{replace:true})
     }
     const onSubmit=(data)=>{
         const {name,email,password,confirmPassword,}=data

@@ -18,7 +18,7 @@ const ShippingDetails = () => {
                     />
                     <div>
                         <h4>Free Shipping</h4>
-                        <p>For order from $3000</p>
+                        <p className='p-0 text-white'>For order from $3000</p>
                     </div>
                 </div>
                 <div className='flex items-center text-white z-10'>
@@ -27,7 +27,7 @@ const ShippingDetails = () => {
                     />
                     <div>
                         <h4>Free Shipping</h4>
-                        <p>For order from $3000</p>
+                        <p className='p-0 text-white'>For order from $3000</p>
                     </div>
                 </div>
                 <div className='flex items-center text-white z-10'>
@@ -36,7 +36,7 @@ const ShippingDetails = () => {
                     />
                     <div>
                         <h4>Free Shipping</h4>
-                        <p>For order from $3000</p>
+                        <p className='p-0 text-white'>For order from $3000</p>
                     </div>
                 </div>
                 <div className='flex items-center text-white z-10'>
@@ -45,7 +45,7 @@ const ShippingDetails = () => {
                     />
                     <div>
                         <h4>Free Shipping</h4>
-                        <p>For order from $3000</p>
+                        <p className='p-0 text-white'>For order from $3000</p>
                     </div>
                 </div>
             </div>

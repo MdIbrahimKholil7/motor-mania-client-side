@@ -1,5 +1,6 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import React, { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import fetcher from '../../api/fetcher';
 import SliderController from './SliderController';
 import SliderProduct from './SliderProduct';
@@ -13,7 +14,8 @@ const Parts = () => {
             setAllParts(data)
         })()
     }, [])
-    console.log(allParts)
+    const location=useLocation()
+   
     const chevronIcon = (<div className='flex '>
         <div class="avatar placeholder mr-3">
             <div class="bg-primary text-white rounded-full w-8">
@@ -40,7 +42,7 @@ const Parts = () => {
         <div className='mx-7 my-14'>
             <div>
                 {
-                    <SliderController
+                   !location.pathname.includes('privateRoute') && <SliderController
                     chevronIcon={chevronIcon}
                     title={'Popular Bike Parts'}
                     />

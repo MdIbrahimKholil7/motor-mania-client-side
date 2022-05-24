@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import './Order.css'
 import ReactImageMagnify from 'react-image-magnify';
 import { CreditCardIcon, InboxIcon, UserIcon } from '@heroicons/react/solid';
+import Parts from '../Home/Parts'
+import fetcher from '../../api/fetcher';
 const PrivateRoute = () => {
     const [item, setItem] = useState({})
     const [loading, setLoading] = useState(true)
@@ -23,9 +25,10 @@ const PrivateRoute = () => {
                 setItem(data)
             })
     }, [id])
-    console.log(errors)
+
     let err;
     if (loading) {
+        console.log('click')
         return <Loading />
     }
     if (value < 100) {
@@ -37,29 +40,46 @@ const PrivateRoute = () => {
     if (value > 100 && value < quantity) {
         err = ''
     }
-    console.log(img)
-    const onSubmit = () => {
+
+    const onSubmit = async (datas) => {
+        const { name, email, quantity, address } = datas
+        console.log(quantity)
+        const body = {
+            name,
+            email,
+            quantity,
+            productName:servicenName,
+            address,
+            total: quantity * price,
+            paid: false
+        }
+        const { data } = await fetcher.post('users-order-data', {
+            body
+        })
+        console.log(data)
         reset()
     }
     return (
         <div>
-            <div className="hero min-h-screen mb-14">
+            <div className="hero min-h-[80vh] mb-14">
                 <div className="hero-content w-full justify-between flex-col lg:flex-row">
                     <div className='w-[450px] flex justify-center items-center '>
-                       {/*  <img src={img} className="rounded-lg w-[320px] object-cover" alt='' /> */}
+                        {/*  <img src={img} className="rounded-lg w-[320px] object-cover" alt='' /> */}
                         <ReactImageMagnify {...{
                             smallImage: {
                                 alt: 'Wristwatch by Ted Baker London',
                                 isFluidWidth: true,
                                 src: `${img}`,
-                                width: 200,
-                                height:'auto'
+                                /*  width: 200,
+                                 height:'auto', */
+                                sizes: '(min-width: 300px) 33.5vw, (min-width: 415px) 50vw, 100vw',
                             },
                             largeImage: {
                                 src: `${img}`,
                                 width: 1200,
                                 height: 1800
-                            }
+                            },
+
                         }} />
 
                     </div>
@@ -197,8 +217,8 @@ const PrivateRoute = () => {
                             {errors.address?.type === 'required' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
 
                         </div>
-                        <div class="form-control mt-6">
-                            <button class="btn hover:bg-[#6358DC] bg-[#6358DC] text-white">Order</button>
+                        <div class="form-control">
+                            <button disabled={value < 100 || value > quantity} class="btn hover:bg-[#6358DC]  bg-[#6358DC] text-white">Order</button>
                         </div>
                     </form>
                     <div class="Yorder w-[300px]">
@@ -216,7 +236,8 @@ const PrivateRoute = () => {
                             </tr>
                             <tr>
                                 <td>Total</td>
-                                <td>${value * price}</td>
+                                <td>${value <= quantity && value >= 100 ? value * price : price * 100}
+                                </td>
                             </tr>
                             <tr>
                                 <td>Shipping</td>
@@ -228,7 +249,12 @@ const PrivateRoute = () => {
                 </div>
             </div>
 
-
+            <div >
+                <div className='text-3xl font font-bold mt-5 mb-2  px-9'>
+                    <h1>Related Product</h1>
+                </div>
+                <Parts />
+            </div>
         </div>
     );
 };

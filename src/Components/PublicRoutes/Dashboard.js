@@ -1,9 +1,13 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+import DashboardSidebar from './DashboardSidebar';
 
 const Dashboard = () => {
     return (
         <div>
-            <h1>This is dash</h1>
+            <DashboardSidebar>
+                <Outlet/>
+            </DashboardSidebar>
         </div>
     );
 };

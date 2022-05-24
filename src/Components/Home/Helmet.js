@@ -64,13 +64,13 @@ const Helmet = () => {
                             <div class="max-w-md">
                                 <div className='mb-3'>
                                     <h1 class="mb-2 text-3xl font-bold">Helmet</h1>
-                                    <p>Low Prices</p>
-                                    <p>Match Guarantee</p>
+                                    <p className='p-0 text-white'>Low Prices</p>
+                                    <p className='p-0 text-white'>Match Guarantee</p>
                                 </div>
                                 <div className='mb-4'>
-                                    <p>Headlights</p>
-                                    <p>Brakes & Suspension</p>
-                                    <p>Body Parts</p>
+                                    <p className='p-0 text-white'>Headlights</p>
+                                    <p className='p-0 text-white'>Brakes & Suspension</p>
+                                    <p className='p-0 text-white'>Body Parts</p>
                                 </div>
                                 <PrimaryBtn>Shop Now</PrimaryBtn>
                             </div>

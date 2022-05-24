@@ -3,7 +3,7 @@ import React from 'react';
 
 const HelmetCard = ({ elem, height }) => {
     const { productName, img, price, ratings } = elem || {}
-    console.log(height)
+   
     return (
         <div>
             <div class={`card max-w-lg  shadow-md mx-2  p-0 my-2 cursor-pointer relative overflow-hidden card-parent duration-300 ease-in ${height ? `h-[${height}]` : 'h-auto'}`}>
@@ -11,7 +11,7 @@ const HelmetCard = ({ elem, height }) => {
                     <img className=' img-card h-36' src={img} alt={productName} class="rounded-xl" />
               
                 <div class="card-body  p-2">
-                    <h2 class="card-title">{productName}</h2>
+                    <h2 class="card-title p-0">{productName}</h2>
                     <div className='flex justify-between items-center w-full pb-3 '>
                         <h1>${price}</h1>
                         <div className='flex'>
