@@ -2,6 +2,8 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 import axiosPrivate from '../../api/axiosPrivate'
 import fetcher from '../../api/fetcher';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 const CheckoutForm = ({ order }) => {
 
     const [err, setErr] = useState('')
@@ -9,7 +11,8 @@ const CheckoutForm = ({ order }) => {
     const [clientSecret, setClientSecret] = useState('')
     const stripe = useStripe();
     const elements = useElements();
-    const { name, total, email, id, available, quantity, _id } = order || {}
+    const { name, total, email, id, available, quantity, _id, quantitys } = order || {}
+    console.log(order)
     /* console.log(stripe)
     console.log(elements) */
     console.log(clientSecret)
@@ -59,27 +62,34 @@ const CheckoutForm = ({ order }) => {
             const details = {
                 id,
                 _id,
-                available: available - quantity,
+                available: quantity - quantitys,
                 transactionId: paymentIntent.id,
                 name,
-                email
+                email,
             }
 
             console.log(paymentIntent)
 
-            /*  (async () => {
-                
-             })()
-         setSuccess(paymentIntent.id) */
-
             await fetch('http://localhost:5000/payment-complete', {
-                method: 'PUT',
+                method: 'POST',
                 headers: {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify(details)
             })
-                .then(res => res.json())
+                .then(res => {
+                    if (paymentIntent.id) {
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: 'Your payment is successful',
+                            showConfirmButton: false,
+                            timer: 2000
+                        })
+                    }
+                    console.log(res)
+                    return res.json()
+                })
                 .then(data => console.log(data))
 
 

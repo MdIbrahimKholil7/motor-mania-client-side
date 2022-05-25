@@ -19,7 +19,7 @@ const PrivateRoute = () => {
     const { id } = useParams()
     const navigate = useNavigate()
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
-    const { servicenName, img, quantity, price } = item || {}
+    const { servicenName, img, quantity, price, } = item || {}
     const url = `http://localhost:5000/get-service?id=${id}&email=${user?.email}`
     useEffect(() => {
 
@@ -54,6 +54,7 @@ const PrivateRoute = () => {
 
            
         }, [user, id, navigate,url])
+        console.log(item)
     let err;
     if (loading) {
         console.log('click')
@@ -70,19 +71,20 @@ const PrivateRoute = () => {
     }
 
     const onSubmit = async (datas) => {
-        const { name, email, quantity, address } = datas
+        const { name, email, quantitys, address } = datas
         console.log(quantity)
         const body = {
             name,
             email,
-            quantity,
+            quantitys,
             productName: servicenName,
             address,
-            total: quantity * price,
+            total: quantitys * price,
             paid: false,
             price,
             img,
-            id:id
+            id:id,
+            quantity
         }
         const { data } = await fetcher.post('users-order-data', {
             body
@@ -204,7 +206,7 @@ const PrivateRoute = () => {
                                 placeholder="Quantity"
                                 class="input input-bordered form-border mb-3 w-full"
                                 value={value}
-                                {...register("quantity", {
+                                {...register("quantitys", {
                                     required: {
                                         value: true,
                                         message: 'Please enter quantity'
@@ -214,7 +216,7 @@ const PrivateRoute = () => {
                             />
 
 
-                            {errors.quantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
+                            {errors.quantitys?.type === 'required' && <span className="label-text-alt text-red-500">{errors.quantitys.message}</span>}
                             {errors.minLength?.type === 'required' && <span className="label-text-alt text-red-500">{errors.minLength.message}</span>}
                             {errors.maxLength?.type === 'required' && <span className="label-text-alt text-red-500">{errors.maxLength.message}</span>}
                             {

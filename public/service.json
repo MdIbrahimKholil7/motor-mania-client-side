@@ -1,0 +1,141 @@
+[
+    {
+        "servicenName": "Bike Silencer",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 78,
+        "quantity": 10000,
+        "img": "https://i.ibb.co/jk88ggr/silencer.png",
+        "ratings":5,
+        "category": "silencer"
+    },
+    {
+        "servicenName": "Fuel Tank",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 105,
+        "quantity": 10000,
+        "img": "https://i.ibb.co/sJcKXn4/fuel-tank.png",
+        "ratings":5,
+        "category": "fueltank"
+    },
+    {
+        "servicenName": "Shoie Engine",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 788,
+        "quantity": 10000,
+        "img": "https://i.ibb.co/RHKFcvg/engine.png",
+        "ratings":5,
+        "category": "engine"
+    },
+    {
+        "servicenName": "ARV Engine",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 287,
+        "quantity": 10000,
+        "img": "https://i.ibb.co/5BKhVyr/engine4-2.png",
+        "category": "engine",
+        "ratings":5
+    },
+    {
+        "servicenName": "Azero Headlight",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 78,
+        "quantity": 4000,
+        "img": "https://i.ibb.co/2hMf6h4/headlight.png",
+        "category": "headlight",
+        "ratings":5
+    },
+    {
+        "servicenName": "Azero Silencer",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 78,
+        "quantity": 60000,
+        "img": "https://i.ibb.co/jk88ggr/silencer.png",
+        "ratings":4,
+        "category": "silencer"
+    },
+    {
+        "servicenName": "Gramour Tyre",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 78,
+        "quantity": 90000,
+        "img": "https://i.ibb.co/jk88ggr/silencer.png",
+        "ratings":5,
+        "category": "tyre"
+    },
+    {
+        "servicenName": "Azero Fuel Tank",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 105,
+        "quantity": 40000,
+        "img": "https://i.ibb.co/wr8Nmqb/fuel-tank2.png",
+        "ratings":5,
+        "category": "fueltank"
+    },
+    {
+        "servicenName": "Mountain Break",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 58,
+        "quantity": 50000,
+        "img": "https://i.ibb.co/ygP83MR/break.png",
+        "ratings":5,
+        "category": "break"
+    },
+    {
+        "servicenName": "Shoie NXR",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 287,
+        "quantity": 1000,
+        "img": "https://i.ibb.co/sKcLK8F/helmet1.jpg",
+        "category": "helmet",
+        "ratings":4
+    },
+    {
+        "servicenName": "AGV Sports Moduler",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 178,
+        "quantity": 4000,
+        "img": "https://i.ibb.co/0CQPBNP/helmet2.jpg",
+        "category": "helmet",
+        "ratings":5
+    },
+    {
+        "servicenName": "MT SV-21",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 218,
+        "quantity": 50000,
+        "img": "https://i.ibb.co/sKcLK8F/helmet1.jpg",
+        "ratings":4,
+        "category": "helmet"
+
+    },
+    {
+        "servicenName": "Shoie NXR",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 118,
+        "quantity": 90000,
+        "img": "https://i.ibb.co/0CQPBNP/helmet2.jpg",
+        "ratings":5,
+        "category": "helmet"
+
+    },
+    {
+        "servicenName": "AR Street",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 318,
+        "quantity":2100,
+        "img": "https://i.ibb.co/sKcLK8F/helmet1.jpg",
+        "ratings":4,
+        "category": "helmet"
+
+    },
+    {
+        "servicenName": "Shoie NXR",
+        "desc": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "price": 98,
+        "quantity": 50000,
+        "img": "https://i.ibb.co/hFSr3d9/helmet-4.jpg",
+        "ratings":5,
+        "category": "helmet"
+
+    }
+]

@@ -11,7 +11,7 @@ const Services = () => {
             setData(get.data)
         })()
     }, [])
-
+    console.log(data)
     return (
         <div className='px-4'>
             <h1 className='text-center font-bold text-primary font text-3xl mb-16'>Get Bike Parts</h1>

@@ -12,7 +12,6 @@ const ServiceCard = ({ elem }) => {
         setLessDetail(details)
         setDetail(details)
     }, [desc])
-    console.log(elem)
     const showMore=()=>{
         setDetail(desc)
         setOpen(false)
@@ -26,12 +25,12 @@ const ServiceCard = ({ elem }) => {
 
     return (
         <div>
-            <div class="card lg:max-w-lg bg-base-100 shadow-xl">
+            <div class="card lg:max-w-lg bg-base-100 shadow-2xl">
                 <figure class="px-10 pt-10">
                     <img src={img} class="rounded-xl h-48" alt={servicenName}/>
                 </figure>
                 <div class="card-body text-left  items-start">
-                    <h2 class="card-title">{servicenName}</h2>
+                    <h2 class="card-title pl-0">{servicenName}</h2>
                     <p className='p-0'>{detail}</p>
                     <>{open ? showMorebtn:showLessbtn}</>
                     <p className='p-0'>Available:{quantity}</p>

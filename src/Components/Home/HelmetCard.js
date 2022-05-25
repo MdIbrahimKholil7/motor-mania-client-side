@@ -2,21 +2,21 @@ import { StarIcon } from '@heroicons/react/solid';
 import React from 'react';
 
 const HelmetCard = ({ elem, height }) => {
-    const { productName, img, price, ratings } = elem || {}
-   
+    const { servicenName, img, price, ratings } = elem || {}
+    console.log(ratings)
     return (
         <div>
             <div class={`card max-w-lg  shadow-md mx-2  p-0 my-2 cursor-pointer relative overflow-hidden card-parent duration-300 ease-in ${height ? `h-[${height}]` : 'h-auto'}`}>
                
-                    <img className=' img-card h-36' src={img} alt={productName} class="rounded-xl" />
+                    <img className=' img-card h-36' src={img} alt={servicenName} class="rounded-xl" />
               
                 <div class="card-body  p-2">
-                    <h2 class="card-title p-0">{productName}</h2>
+                    <h2 class="card-title p-0">{servicenName}</h2>
                     <div className='flex justify-between items-center w-full pb-3 '>
                         <h1>${price}</h1>
                         <div className='flex'>
                             {
-                                [...Array(Number(ratings))].map((elem, index) => <StarIcon
+                                [...Array(Number(ratings || 4))].map((elem, index) => <StarIcon
                                     key={index}
                                     className='w-4 text-[#f6c80edf] mr-1'
                                 />)

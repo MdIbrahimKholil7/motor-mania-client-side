@@ -9,13 +9,13 @@ const Engine = () => {
                 <img src={engine} class="lg:w-[300px] w-[240px] object-cover  rounded-lg " alt='engine' />
                 <div className='md:w-[50%]'>
                     <h1 class="md:text-4xl text-3xl font-bold font">Worlds Most Powerful Engine</h1>
-                    <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <p class="py-6 pl-0">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <div className='grid md:grid-cols-2 gap-9'>
                         <div className='flex items-center'>
                             <img className='w-16 bg-blend-overlay mr-4' src={engineLogo} alt="logo" />
                             <div>
                                 <h1>Engine Power</h1>
-                                <p>205hp (151 kW)</p>
+                                <p  className='p-0'>205hp (151 kW)</p>
                             </div>
                         </div>
                         <div className='flex items-center'>
@@ -24,8 +24,8 @@ const Engine = () => {
                             />
                             <div>
                                 <h1>Engine type</h1>
-                                <p>4-Stroke Cylinder</p>
-                            </div>
+                                <p className='p-0'>4-Stroke Cylinder</p>
+                            </div >
                         </div>
                     </div>
                     <button class="btn btn-primary mt-7">Shop Now</button>

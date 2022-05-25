@@ -7,8 +7,8 @@ const HeaderProduct = () => {
         <div className='grid lg:grid-cols-2  gap-9 w-full px-4 my-9'>
             <div class="flex bg-[#f7f2f2] shadow-xl card card-side">
                 <div class="card-body px-4  sm:px-4  items-start justify-center">
-                    <h2 class="text-[15px]">Power tools of next level</h2>
-                    <p className=' flex-grow-0 font-bold text-xs sm:text-2xl mb-7'>Cruiser Engine</p>
+                    <h2 class="text-[15px] p-0">Power tools of next level</h2>
+                    <p className=' flex-grow-0 p-0 font-bold text-xs sm:text-2xl mb-7'>Cruiser Engine</p>
                     <PrimaryBtn>Shop Now</PrimaryBtn>
                 </div>
                 <div className='flex justify-center w-[220px] items-center pr-5 polygon relative'>
@@ -17,8 +17,8 @@ const HeaderProduct = () => {
             </div>
             <div class="card card-side  bg-[#f7f2f2] shadow-xl">
                 <div class="card-body px-4  sm:px-4 items-start justify-center">
-                    <h2 className='text-[15px]'>New Style Heritage Bike</h2>
-                    <p className=' flex-grow-0 font-bold text-2xl mb-7'>Bike Tyre</p>
+                    <h2 className='text-[15px] p-0'>New Style Heritage Bike</h2>
+                    <p className=' flex-grow-0 p-0 font-bold text-2xl mb-7'>Bike Tyre</p>
                     <PrimaryBtn>Shop Now</PrimaryBtn>
                 </div>
 
