@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import auth from '../../firebase_init';
 import Loading from '../Shared/Loading';
 import { useForm } from "react-hook-form";
@@ -9,34 +9,51 @@ import ReactImageMagnify from 'react-image-magnify';
 import { CreditCardIcon, InboxIcon, UserIcon } from '@heroicons/react/solid';
 import Parts from '../Home/Parts'
 import fetcher from '../../api/fetcher';
+import axiosPrivate from '../../api/axiosPrivate';
+import { signOut } from 'firebase/auth';
 const PrivateRoute = () => {
     const [item, setItem] = useState({})
     const [loading, setLoading] = useState(false)
     const [value, setValue] = useState(100)
     const [user] = useAuthState(auth)
     const { id } = useParams()
+    const navigate = useNavigate()
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const { servicenName, img, quantity, price } = item || {}
+    const url = `http://localhost:5000/get-service?id=${id}&email=${user?.email}`
     useEffect(() => {
-        setLoading(true)
-        if (user?.email) {
-            fetch(`http://localhost:5000/get-service?id=${id}&email=${user?.email}`, {
-                method: "GET",
-                headers: {
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                },
-               /*  body: {
-                    email: user?.email
-                } */
-            })
-                .then(res => res.json())
-                .then(data => {
-                    setLoading(false)
-                    setItem(data)
-                })
-        }
-    }, [user,id])
 
+        try {
+            if (user?.email) {
+                (async () => {
+                    await fetch(url, {
+                        headers: {
+                            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                        }
+                    })
+                        .then(res => {
+                            if (res.status === 401 || res.status === 403) {
+                                
+                                signOut(auth)
+                                navigate('/login')
+                            }
+                           
+                            return res.json()
+                        })
+                        .then(data => {
+                            setLoading(false)
+                            setItem(data)
+                        })
+                }
+                )()
+            }
+        }
+            catch (err) {
+                console.log(err)
+            }
+
+           
+        }, [user, id, navigate,url])
     let err;
     if (loading) {
         console.log('click')
@@ -64,7 +81,8 @@ const PrivateRoute = () => {
             total: quantity * price,
             paid: false,
             price,
-            img
+            img,
+            id:id
         }
         const { data } = await fetcher.post('users-order-data', {
             body

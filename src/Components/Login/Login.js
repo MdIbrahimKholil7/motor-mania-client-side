@@ -20,7 +20,6 @@ const Login = () => {
         auth
     );
     const location = useLocation()
-    
     const navigate = useNavigate()
     let from = location.state?.from?.pathname || "/";
     const [

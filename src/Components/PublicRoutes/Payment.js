@@ -1,30 +1,40 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import fetcher from '../../api/fetcher';
 import Loading from '../Shared/Loading';
-
+import CheckoutForm from './CheckoutForm';
+const stripePromise = loadStripe(process.env.REACT_APP_stripe_key);
 const Payment = () => {
     const { id } = useParams()
-    const url=`http://localhost:5000/get-payment/${id}`
-    const {data,isLoading}=useQuery('get-order', ()=>fetcher.get(url))
-    console.log(data.data)
-    const {productName,price,total,}=data.data || {}
-    if(isLoading){
-        return <Loading/>
+    const url = `http://localhost:5000/get-payment/${id}`
+    const { data, isLoading } = useQuery('get-order', () => fetcher.get(url))
+    const { productName, price, total, quantity, img } = data?.data || {}
+    if (isLoading) {
+        return <Loading />
     }
     return (
         <div>
-            <div class="card w-96 glass">
-                <figure><img src="https://api.lorem.space/image/car?w=400&h=225" alt="car!" /></figure>
+            <div class="card md:w-96 w-80  glass mt-7 mb-14">
+                <div>
+                    <img className='w-40 rounded-lg mx-auto object-cover' src={img} alt="" />
+                    <div className='pl-5'>
+                        <h1 className='text-xl font font-bold'>{productName}</h1>
+                        <p className='text-[16px] p-0 my-2 text-black font font-bold '>Price: ${price}</p>
+                        <p className='text-[16px] p-0 my-2 text-black font font-bold '>Quantity: {quantity}</p>
+                        <p className='text-[16px] p-0 my-2 text-black font font-bold '>Total: ${total}</p>
+                    </div>
+                </div>
                 <div class="card-body">
-                    <div class="card w-full bg-base-100">
+                    <div class="card p-0 w-[90%] shadow-2xl pt-4 bg-base-100">
                         <div class="card-body">
-                            <h2 class="card-title">Card title!</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div class="card-actions justify-end">
-                                <button class="btn btn-primary">Buy Now</button>
-                            </div>
+                            <Elements stripe={stripePromise}>
+                                <CheckoutForm 
+                                order={data?.data}
+                                />
+                            </Elements>
                         </div>
                     </div>
                 </div>
