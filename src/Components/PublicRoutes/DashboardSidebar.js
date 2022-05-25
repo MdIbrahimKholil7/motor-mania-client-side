@@ -5,7 +5,7 @@ const DashboardSidebar = ({children}) => {
     return (
         <div class="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-content flex flex-col items-center justify-center">
+            <div class="drawer-content flex flex-col items-center justify-center px-4">
                {/*  <!-- Page content here --> */}
                {children}
                 <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>

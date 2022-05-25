@@ -2,45 +2,49 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Social from './Social';
 import { useForm } from "react-hook-form";
-import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase_init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Shared/Loading';
+import useToken from '../../api/useToken';
 const Login = () => {
-    const [passError,setPassError]=useState('')
-    const [user]=useAuthState(auth)
-    const { register, handleSubmit, watch, formState: { errors },reset } = useForm();
-    const location=useLocation()
-    const navigate=useNavigate()
+    const [passError, setPassError] = useState('')
+    const [user] = useAuthState(auth)
+    const [token] = useToken(user)
+    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
+    const location = useLocation()
+    const navigate = useNavigate()
     let from = location.state?.from || "/";
     const [
         createUserWithEmailAndPassword,
         users,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
-      console.log(user)
-    if(loading){
-        return <Loading/>
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    console.log(user)
+    const [updateProfile, updating] = useUpdateProfile(auth);
+
+    if (loading || updating) {
+        return <Loading />
     }
-    if(error){
+    if (error) {
         return
     }
-    if(user){
-        navigate(from,{replace:true})
+    if (token) {
+        navigate(from, { replace: true })
     }
-    const onSubmit=(data)=>{
-        const {name,email,password,confirmPassword,}=data
-        if(password !== confirmPassword){
+    const onSubmit = async (data) => {
+        const { name, email, password, confirmPassword, } = data
+        if (password !== confirmPassword) {
             setPassError('Password not match')
-        }else{
+        } else {
             setPassError('')
-            createUserWithEmailAndPassword(email,password)
+            await createUserWithEmailAndPassword(email, password)
             toast.success('Email verification sent')
+            await updateProfile({displayName:name});
             reset()
         }
-       
     }
 
     return (
@@ -50,7 +54,7 @@ const Login = () => {
                     <div class="card flex-shrink-0 w-full sm:w-[440px] shadow-2xl bg-base-100">
                         <div class="py-7">
                             <div class="lg:px-5 px-5 w-full">
-                                <form className=''  onSubmit={handleSubmit(onSubmit)}>
+                                <form className='' onSubmit={handleSubmit(onSubmit)}>
                                     <h1 className='text-center font font-bold text-2xl mb-9 text-[#6358DC]'>Register</h1>
 
                                     <div className='relative mb-9'>
@@ -64,7 +68,7 @@ const Login = () => {
                                                     value: true,
                                                     message: 'Please input your name'
                                                 },
-                                               
+
                                             })}
 
                                         />
@@ -143,11 +147,11 @@ const Login = () => {
                                             {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                             {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                             {
-                                                passError &&<span className="label-text-alt text-red-500">{passError}</span> 
+                                                passError && <span className="label-text-alt text-red-500">{passError}</span>
                                             }
                                         </label>
                                     </div>
-                                 
+
                                     <div class="form-control mt-6">
                                         <button class="btn hover:bg-[#6358DC] bg-[#6358DC] text-white">Register</button>
                                     </div>
@@ -162,7 +166,7 @@ const Login = () => {
                         <p className='text-white text-xl font mt-3 mr-16 '>Please Register</p>
                     </div>
                 </div>
-                <ToastContainer/>
+                <ToastContainer />
             </div>
         </div>
     );

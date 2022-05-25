@@ -9,15 +9,18 @@ import auth from '../../firebase_init';
 import Loading from '../Shared/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useToken from '../../api/useToken';
 const Login = () => {
     const [logError, setLogError] = useState('')
     const [user]=useAuthState(auth)
+    const [token]=useToken(user)
     const [email, setEmail] = useState('')
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
         auth
     );
     const location = useLocation()
+    
     const navigate = useNavigate()
     let from = location.state?.from?.pathname || "/";
     const [
@@ -46,16 +49,14 @@ const Login = () => {
     if (loading) {
         return <Loading />
     }
-    if (user) {
+    if (token) {
         navigate(from, { replace: true })
     }
-
     const handleReset = () => {
         console.log('click')
         sendPasswordResetEmail(email)
         toast('Password reset send on your email')
     }
-
     const onSubmit = (data) => {
         setLogError('')
         signInWithEmailAndPassword(data.email, data.password)

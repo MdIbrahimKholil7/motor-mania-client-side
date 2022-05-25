@@ -11,20 +11,31 @@ import Parts from '../Home/Parts'
 import fetcher from '../../api/fetcher';
 const PrivateRoute = () => {
     const [item, setItem] = useState({})
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [value, setValue] = useState(100)
     const [user] = useAuthState(auth)
     const { id } = useParams()
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const { servicenName, img, quantity, price } = item || {}
     useEffect(() => {
-        fetch(`http://localhost:5000/get-service/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setLoading(false)
-                setItem(data)
+        setLoading(true)
+        if (user?.email) {
+            fetch(`http://localhost:5000/get-service?id=${id}&email=${user?.email}`, {
+                method: "GET",
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+               /*  body: {
+                    email: user?.email
+                } */
             })
-    }, [id])
+                .then(res => res.json())
+                .then(data => {
+                    setLoading(false)
+                    setItem(data)
+                })
+        }
+    }, [user,id])
 
     let err;
     if (loading) {
@@ -48,10 +59,12 @@ const PrivateRoute = () => {
             name,
             email,
             quantity,
-            productName:servicenName,
+            productName: servicenName,
             address,
             total: quantity * price,
-            paid: false
+            paid: false,
+            price,
+            img
         }
         const { data } = await fetcher.post('users-order-data', {
             body
@@ -218,7 +231,7 @@ const PrivateRoute = () => {
 
                         </div>
                         <div class="form-control">
-                            <button disabled={value < 100 || value > quantity} class="btn hover:bg-[#6358DC]  bg-[#6358DC] text-white">Order</button>
+                            <button disabled={value < 100 || value > quantity} class="btn hover:bg-[#6358DC]  bg-[#6358DC] text-white" type='submit'>Order</button>
                         </div>
                     </form>
                     <div class="Yorder w-[300px]">

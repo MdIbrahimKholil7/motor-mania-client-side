@@ -11,6 +11,7 @@ import MyOrder from './Components/PublicRoutes/MyOrder';
 import MyProfile from './Components/PublicRoutes/MyProfile';
 import AddReview from './Components/PublicRoutes/AddReview';
 import RequireAuth from './Components/Shared/RequireAuth'
+import Payment from './Components/PublicRoutes/Payment';
 function App() {
   console.log(publicRoute)
   return (
@@ -29,12 +30,16 @@ function App() {
             <Route index element={<MyProfile />} />
             <Route path='myOrder' element={<MyOrder />} />
             <Route path='addReview' element={<AddReview />} />
+            <Route path='payment/:id' element={<Payment />} />
           </Route>
           <Route path='/register' element={<Register />} />
           {/* public route  */}
           <Route path='/privateRoute/:id' element={<RequireAuth>
             <PrivateRoute />
           </RequireAuth>}></Route>
+         {/*  <Route path='/payment/:id' element={<RequireAuth>
+            <Payment />
+          </RequireAuth>}></Route> */}
 
         </Routes>
         <Footer />
