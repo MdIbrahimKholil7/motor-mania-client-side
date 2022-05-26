@@ -69,7 +69,8 @@ const MyProfile = () => {
             phone,
             address,
             education,
-            imgUrl
+            imgUrl,
+            name:user?.displayName
         }
         fetcher.put(`profile-data/${profile?._id}`, users)
             .then(res => {
