@@ -14,9 +14,11 @@ const Helmet = () => {
     useEffect(() => {
         (async () => {
             const { data } = await fetcher(`get-helmet?name=helmet`)
+            console.log(data)
             setHelmet(data)
         })()
     }, [])
+    console.log(helmet)
     const chevronIcon = (<div className='flex '>
         <div class="avatar placeholder mr-3">
             <div class="bg-primary text-white rounded-full w-8">

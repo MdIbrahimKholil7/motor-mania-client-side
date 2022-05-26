@@ -84,7 +84,7 @@ const MyOrder = () => {
                         />
                     }
                 </div>
-                :<h1>You don't have any order</h1>
+                :<h1 className='text-center mt-7 text-primary text-3xl font-bold'>You don't have any order</h1>
             }
         </div>
     );

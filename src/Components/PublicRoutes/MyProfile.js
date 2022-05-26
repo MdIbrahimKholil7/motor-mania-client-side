@@ -8,13 +8,14 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading'
-import UpdateModal from './UpdateModal';
+import { useNavigate } from 'react-router-dom';
+
 const MyProfile = () => {
     const [user] = useAuthState(auth)
     const [loading, setLoading] = useState(false)
-    const [openModal, setOpenModal] = useState(false)
     const [imgUrl, setImgUrl] = useState('')
     const [profile, setProfile] = useState({})
+    const navigate=useNavigate()
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
 
     const { loading: loadings } = useQuery(['get-profile-data', user], () => fetch(`http://localhost:5000/get-profile-data?email=${user?.email}`)
@@ -23,7 +24,7 @@ const MyProfile = () => {
     )
 
     const { imgUrl: img, address, education, phone } = profile || {}
-    
+    console.log(profile)
     const imageHandler = async event => {
         setLoading(true)
         console.log(event.target.files[0])
@@ -50,20 +51,17 @@ const MyProfile = () => {
             console.log(error)
         }
     }
-
+   
     const onSubmit = data => {
         console.log(data)
         const { name, address, phone, email, education } = data
-        const user = {
-            name,
-            email,
+        const users = {
             phone,
             address,
             education,
             imgUrl
         }
-
-        fetcher.post('profile-data', user)
+        fetcher.put(`profile-data/${profile?._id}`, users)
             .then(res => {
                 if (res.data.acknowledged) {
                     Swal.fire({
@@ -72,7 +70,7 @@ const MyProfile = () => {
                         title: 'Your profile is Done',
                         showConfirmButton: false,
                         timer: 3000
-                    })
+                    })  
                 }
             })
 
@@ -81,7 +79,7 @@ const MyProfile = () => {
         <div className='bg-base-200  py-7'>
             <div>
                 <div>
-                    <img className='w-[200px] rounded-full mx-auto' src={img?img:users} alt="" />
+                    <img className='w-[150px] object-cover rounded-full mx-auto' src={img ? img : users} alt="" />
                 </div>
                 <form
                     className='w-[70%] mx-auto mt-14 justify-center flex-col items-center'
@@ -93,6 +91,7 @@ const MyProfile = () => {
                         </label>
                         <input
                             type="text"
+                            name='name'
                             placeholder="FullName"
                             value={user?.displayName}
                             readOnly
@@ -119,6 +118,7 @@ const MyProfile = () => {
                         </label>
                         <input
                             type="text"
+                            name='email'
                             placeholder="Email"
                             class="input input-bordered w-full rounded-full"
                             value={user?.email}
@@ -146,10 +146,11 @@ const MyProfile = () => {
                         </label>
                         <input
                             type="number"
-                            placeholder="Phone number"
+                            name='phone'
+                            placeholder={phone ? phone:'Phone'}
                             class="input input-bordered w-full rounded-full"
-                            value={phone ? phone : ''}
-                            readOnly={phone ? true : false}
+
+                         
                             {...register("phone", {
                                 required: {
                                     value: true,
@@ -173,10 +174,11 @@ const MyProfile = () => {
                         </label>
                         <input
                             type="text"
-                            placeholder="Address"
+                            name='address'
+                            placeholder={address ? address:'Address'}
                             class="input input-bordered w-full rounded-full"
-                            value={address ? address : ''}
-                            readOnly={address ? true : false}
+                            
+                            
                             {...register("address", {
                                 required: {
                                     value: true,
@@ -198,10 +200,10 @@ const MyProfile = () => {
                         </label>
                         <input
                             type="text"
-                            placeholder="Education"
+                            name='education'
+                            placeholder={education ? education:'Education'}
                             class="input input-bordered w-full rounded-full"
-                            value={education ? education : ''}
-                            readOnly={education ? true : false}
+                        
                             {...register("education", {
                                 required: {
                                     value: true,
@@ -231,25 +233,18 @@ const MyProfile = () => {
                             class="input input-bordered hidden w-full rounded-full"
                             disabled={address && true}
                         />
-
                     </div>
                     <div className='mt-7 text-center'>
                         <button
                             className='btn bg-slate-700 text-white'
-                            disabled={imgUrl  ? false : true}
-                        >Save</button>
-                        <button className=''>Update</button>
-
-                        <label onClick={()=>setOpenModal(true)} for="my-modal" class=" modal-button btn bg-pink-900 text-white ml-7">Update</label>
+                            disabled={imgUrl ? false : true}
+                            
+                        >Add Information</button>
+                   
+                        <span onClick={()=>navigate('/dashboard/updateProfile')} for="my-modal" class=" modal-button btn bg-pink-900 text-white ml-7">Update Profile</span>
                     </div>
                 </form>
-
             </div>
-
-            <UpdateModal
-            profile={profile}
-            />
-
         </div>
     );
 };

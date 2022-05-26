@@ -16,13 +16,14 @@ const Login = () => {
     const location = useLocation()
     const navigate = useNavigate()
     let from = location.state?.from || "/";
+    console.log(location)
     const [
         createUserWithEmailAndPassword,
         users,
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    console.log(user)
+    // console.log(user)
     const [updateProfile, updating] = useUpdateProfile(auth);
 
     if (loading || updating) {

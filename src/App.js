@@ -12,6 +12,7 @@ import MyProfile from './Components/PublicRoutes/MyProfile';
 import AddReview from './Components/PublicRoutes/AddReview';
 import RequireAuth from './Components/Shared/RequireAuth'
 import Payment from './Components/PublicRoutes/Payment';
+import UpdateProfile from './Components/PublicRoutes/UpdateProfile';
 function App() {
   console.log(publicRoute)
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route index element={<MyProfile />} />
             <Route path='myOrder' element={<MyOrder />} />
             <Route path='addReview' element={<AddReview />} />
+            <Route path='updateProfile' element={<UpdateProfile />} />
             <Route path='payment/:id' element={<Payment />} />
           </Route>
           <Route path='/register' element={<Register />} />
