@@ -1,21 +1,32 @@
-import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import axiosPrivate from '../../api/axiosPrivate';
-import fetcher from '../../api/fetcher';
 import users from '../../assets/images/user.png'
 import auth from '../../firebase_init';
 import useAdmin from '../../hooks/useAdmin';
+import Loading from '../Shared/Loading';
+
 const AdminTable = ({ userData, index, refetch }) => {
     const [user] = useAuthState(auth)
-    const [admin, adminLoading] = useAdmin(user)
+    const [admin] = useAdmin(user)
     const { email, imgUrl, name, role, _id } = userData
-
+    const [loading,setLoading]=useState(false)
+    if(loading){
+        return <Loading/>
+    }
     const makeAdmin = async () => {
-        const {data}=axiosPrivate.patch(`http://localhost:5000/make-admin/${_id}`)
-            
-            console.log(data)
+       if(admin){
+       await axiosPrivate.patch(`http://localhost:5000/make-admin/${_id}`)
+       }
         refetch()
+    }
+    const handleDelete=async()=>{
+        if(admin){
+            setLoading(true)
+            const {data}=await axiosPrivate.delete(`http://localhost:5000/delete-admin/${_id}`)
+            setLoading(false)
+            console.log(data)
+           }
     }
     return (
         <>
@@ -42,7 +53,7 @@ const AdminTable = ({ userData, index, refetch }) => {
                     }
                 </td>
                 <th>
-                    <button class="btn-xs btn btn-primary">Delete</button>
+                    <button onClick={handleDelete} class="btn-xs btn btn-primary">Delete</button>
                 </th>
             </tr>
 
