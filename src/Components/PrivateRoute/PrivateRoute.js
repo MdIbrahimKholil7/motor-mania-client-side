@@ -16,6 +16,7 @@ const PrivateRoute = () => {
     const [item, setItem] = useState({})
     const [loading, setLoading] = useState(false)
     const [value, setValue] = useState(100)
+    const [error,setError]=useState('')
     const [user] = useAuthState(auth)
     const { id } = useParams()
     const navigate = useNavigate()
@@ -47,28 +48,33 @@ const PrivateRoute = () => {
                 )()
             }
         }
-            catch (err) {
-                console.log(err)
-            }
+        catch (err) {
+            console.log(err)
+        }
 
-           
-        }, [user, id, navigate,url])
-        console.log(item)
+
+    }, [user, id, navigate, url])
+    console.log(item)
     let err;
+    useEffect(() => {
+       
+        if (value < 100) {
+            
+            setError('Please order minimum 100 product')
+            setValue(100)
+        }
+        if (value > quantity) {
+            setError( `You can't order more than available product`)
+            setValue(quantity)
+        }
+        if (value > 100 && value < quantity) {
+           setError('')
+        }
+    }, [value,quantity])
     if (loading) {
         console.log('click')
         return <Loading />
     }
-    if (value < 100) {
-        err = 'Please order minimum 100 product'
-    }
-    if (value > quantity) {
-        err = `You can't order more than available product`
-    }
-    if (value > 100 && value < quantity) {
-        err = ''
-    }
-
     const onSubmit = async (datas) => {
         const { name, email, quantitys, address } = datas
         console.log(quantity)
@@ -82,10 +88,10 @@ const PrivateRoute = () => {
             paid: false,
             price,
             img,
-            id:id,
+            id: id,
             quantity
         }
-        const data  = await fetcher.post('users-order-data', {
+        const data = await fetcher.post('users-order-data', {
             body
         })
         console.log(data)
@@ -226,7 +232,7 @@ const PrivateRoute = () => {
                             {errors.minLength?.type === 'required' && <span className="label-text-alt text-red-500">{errors.minLength.message}</span>}
                             {errors.maxLength?.type === 'required' && <span className="label-text-alt text-red-500">{errors.maxLength.message}</span>}
                             {
-                                err && <span className="label-text-alt text-red-500">{err}</span>
+                                error && <span className="label-text-alt text-red-500">{err}</span>
                             }
 
                         </div>

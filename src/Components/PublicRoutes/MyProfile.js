@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import fetcher from '../../api/fetcher';
@@ -7,9 +7,7 @@ import auth from '../../firebase_init';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { useQuery } from 'react-query';
-import Loading from '../Shared/Loading'
 import { useNavigate } from 'react-router-dom';
-import axiosPrivate from '../../api/axiosPrivate';
 import { signOut } from 'firebase/auth';
 
 const MyProfile = () => {
@@ -19,8 +17,7 @@ const MyProfile = () => {
     const [profile, setProfile] = useState({})
     const navigate=useNavigate()
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
-
-    const { loading: loadings,data,refetch } = useQuery(['get-profile-data', user], () => 
+    const { refetch } = useQuery(['get-profile-data', user], () => 
     fetch(`http://localhost:5000/get-profile-data?email=${user?.email}`,{
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -36,7 +33,6 @@ const MyProfile = () => {
             )
         .then(data => setProfile(data))
     )
-    console.log(data)
     const { imgUrl: img, address, education, phone } = profile || {}
     // console.log(profile)
     const imageHandler = async event => {
