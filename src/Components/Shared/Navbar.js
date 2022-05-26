@@ -1,19 +1,21 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import auth from '../../firebase_init';
 import TopBar from './TopBar';
 
-const Navbar = ({children}) => {
-    const [user]=useAuthState(auth)
+const Navbar = ({ children }) => {
+    const [user] = useAuthState(auth)
     const menu = [
         { name: 'Home', to: '/' },
         { name: 'Dashboard', to: '/dashboard' },
         { name: 'Blog', to: '/blog' },
         { name: 'About', to: '/about' },
-        
+
     ]
+    const location=useLocation()
+
     return (
         <nav className=' '>
             {/* <TopBar/> */}
@@ -22,9 +24,16 @@ const Navbar = ({children}) => {
                 <div class="drawer-content flex flex-col">
                     {/* Navbar  */}
                     <div class="w-full navbar bg-white">
+                        {/* dashboard sidebar menu openar  */}
+                       {
+                           location.pathname.includes('dashboard') &&  <label for="dashboard-sidebar" class="btn drawer-button lg:hidden">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                       </label>
+                       }
+
                         <div class="flex-1 text-4xl font-bold font">Parts<span className='text-primary '>Mania</span></div>
                         <div class="flex-none lg:hidden">
-                            <label for="my-drawer-3" class="btn btn-square btn-ghost">
+                            <label for="my-drawer-3" class="btn btn-square btn-ghost m-0 border-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                             </label>
                         </div>
@@ -51,11 +60,11 @@ const Navbar = ({children}) => {
                                         </ul>
                                     </div>
                                 </li>
-                               
-                                    {
-                                        user ? <button onClick={()=>signOut(auth)} className='btn rounded-full bg-primary text-white '>LogOut</button>:<li className='font-bold p-0 hover:bg-none lg:text-[18px] xl:text-2xl'><Link to='/login'>Login</Link></li>
-                                    }
-                              
+
+                                {
+                                    user ? <button onClick={() => signOut(auth)} className='btn rounded-full bg-primary text-white '>LogOut</button> : <li className='font-bold p-0 hover:bg-none lg:text-[18px] xl:text-2xl'><Link to='/login'>Login</Link></li>
+                                }
+
                             </ul>
                         </div>
                     </div>
