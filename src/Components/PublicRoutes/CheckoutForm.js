@@ -1,7 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 import axiosPrivate from '../../api/axiosPrivate'
-import fetcher from '../../api/fetcher';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 const CheckoutForm = ({ order }) => {
@@ -39,7 +38,7 @@ const CheckoutForm = ({ order }) => {
         });
 
         setErr(error?.message || '')
-        setSuccess('');
+        
         // setProcessing(true);
         // confirm card payment
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
@@ -56,7 +55,9 @@ const CheckoutForm = ({ order }) => {
         );
 
         if (intentError) {
+            setSuccess('')
             setErr(intentError?.message)
+
         } else {
             setErr('')
             const details = {
@@ -67,7 +68,7 @@ const CheckoutForm = ({ order }) => {
                 name,
                 email,
             }
-
+            setSuccess('Your payment is successful')
             console.log(paymentIntent)
 
             await fetch('http://localhost:5000/payment-complete', {
@@ -79,12 +80,13 @@ const CheckoutForm = ({ order }) => {
             })
                 .then(res => {
                     if (paymentIntent.id) {
+                      
                         Swal.fire({
                             position: 'top-center',
                             icon: 'success',
                             title: 'Your payment is successful',
                             showConfirmButton: false,
-                            timer: 2000
+                            timer: 3000
                         })
                     }
                     console.log(res)
@@ -117,11 +119,12 @@ const CheckoutForm = ({ order }) => {
                 <button className='btn mt-5 text-white hover:bg-[#12196cfa] bg-[#12196cfa]' type="submit" disabled={!stripe || !elements || !clientSecret}>
                     Pay
                 </button>
+              
                 {
-                    err && <small className='text-red-500 mt-3 block'>{err}</small>
+                    err && <small className='text-red-500 mt-7 block'>{err}</small>
                 }
                 {
-                    success && <small className='text-green-500 mt-3'>{success}</small>
+                    success && <small className='text-green-500 block mt-7'>{success}</small>
                 }
             </form>
         </div>

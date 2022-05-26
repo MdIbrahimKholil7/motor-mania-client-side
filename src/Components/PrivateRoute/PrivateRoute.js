@@ -9,7 +9,8 @@ import ReactImageMagnify from 'react-image-magnify';
 import { CreditCardIcon, InboxIcon, UserIcon } from '@heroicons/react/solid';
 import Parts from '../Home/Parts'
 import fetcher from '../../api/fetcher';
-import axiosPrivate from '../../api/axiosPrivate';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 import { signOut } from 'firebase/auth';
 const PrivateRoute = () => {
     const [item, setItem] = useState({})
@@ -86,10 +87,17 @@ const PrivateRoute = () => {
             id:id,
             quantity
         }
-        const { data } = await fetcher.post('users-order-data', {
+        const data  = await fetcher.post('users-order-data', {
             body
         })
         console.log(data)
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Your order is confirmed',
+            showConfirmButton: false,
+            timer: 3000
+        })
         reset()
     }
     return (
