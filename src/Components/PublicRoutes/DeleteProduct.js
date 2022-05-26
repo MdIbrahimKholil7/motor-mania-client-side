@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import fetcher from '../../api/fetcher';
 
-const DeleteProduct = ({refetch,openModal,setOpenModal}) => {
-    const [load,setLoad]=useState(false)
+const DeleteProduct = ({refetch,openModal,setOpenModal,deleteUrl}) => {
+    console.log(deleteUrl)
     const handleDelete=async()=>{
-        const {data}=await fetcher.delete(`delete-product/${openModal}`)
+        const {data}=await fetcher.delete(`${deleteUrl}/${openModal}`)
         console.log(data)
         refetch()
         setOpenModal(null)
@@ -16,7 +16,7 @@ const DeleteProduct = ({refetch,openModal,setOpenModal}) => {
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
                     <h3 class="font-bold text-lg text-primary">Are you sure you want to delete</h3>
-                    <p class="py-4 p-0">You've been selected those product for your shop</p>
+                    <p class="py-4 p-0">If you click this button the product will b deleted</p>
 
                     <div class="modal-action">
                         <button onClick={handleDelete} className='btn btn-primary mt-[14px]'>yes</button>

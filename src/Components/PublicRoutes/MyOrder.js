@@ -14,6 +14,7 @@ const MyOrder = () => {
     const [user] = useAuthState(auth)
     const navigate = useNavigate()
     const navigatePayment = useNavigate()
+    const deleteUrl=`delete-product`
     const { isLoading, data, refetch } = useQuery(['repoData', user], () => fetch(`http://localhost:5000/users-order-data?email=${user?.email}`, {
         method: 'GET',
         headers: {
@@ -81,6 +82,7 @@ const MyOrder = () => {
                             setOpenModal={setOpenModal}
                             openModal={openModal}
                             refetch={refetch}
+                            deleteUrl={deleteUrl}
                         />
                     }
                 </div>

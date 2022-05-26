@@ -13,7 +13,7 @@ import AddReview from './Components/PublicRoutes/AddReview';
 import RequireAuth from './Components/Shared/RequireAuth'
 import Payment from './Components/PublicRoutes/Payment';
 import UpdateProfile from './Components/PublicRoutes/UpdateProfile';
-import ManageAllUser from './Components/PublicRoutes/ManageAllUser';
+import ManageProduct from './Components/PublicRoutes/ManageProduct';
 import RequireAdmin from './Components/Shared/RequireAdmin';
 import MakeAdmin from './Components/PublicRoutes/MakeAdmin';
 import ManageAllOrder from './Components/PublicRoutes/MangeAllOrder';
@@ -40,7 +40,7 @@ function App() {
             <Route path='payment/:id' element={<Payment />} />
 
           {/* Admin route  */}
-          <Route path='manageAllUser' element={<RequireAdmin><ManageAllUser/></RequireAdmin>}/>
+          <Route path='manageProduct' element={<RequireAdmin><ManageProduct/></RequireAdmin>}/>
           <Route path='makeAdmin' element={<RequireAdmin><MakeAdmin/></RequireAdmin>}/>
           <Route path='manageAllOrder' element={<RequireAdmin><ManageAllOrder/></RequireAdmin>}/>
           <Route path='addProduct' element={<RequireAdmin><AddProduct/></RequireAdmin>}/>

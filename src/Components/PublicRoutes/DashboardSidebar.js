@@ -29,7 +29,7 @@ const DashboardSidebar = ({ children }) => {
                     {
                         admin && <>
                           
-                            <li className='font font-bold text-xl'><Link to='/dashboard/manageAllUser'>Manage User</Link></li>
+                            <li className='font font-bold text-xl'><Link to='/dashboard/manageProduct'>Manage Product</Link></li>
                             <li className='font font-bold text-xl'><Link to='/dashboard/makeAdmin'>Make Admin</Link></li>
                             <li className='font font-bold text-xl'><Link to='/dashboard/manageAllOrder'>Manage All Order</Link></li>
                             <li className='font font-bold text-xl'><Link to='/dashboard/addProduct'>Add Product</Link></li>
