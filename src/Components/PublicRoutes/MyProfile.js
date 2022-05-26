@@ -9,6 +9,8 @@ import withReactContent from 'sweetalert2-react-content'
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading'
 import { useNavigate } from 'react-router-dom';
+import axiosPrivate from '../../api/axiosPrivate';
+import { signOut } from 'firebase/auth';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth)
@@ -18,13 +20,25 @@ const MyProfile = () => {
     const navigate=useNavigate()
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
 
-    const { loading: loadings } = useQuery(['get-profile-data', user], () => fetch(`http://localhost:5000/get-profile-data?email=${user?.email}`)
-        .then(res => res.json())
+    const { loading: loadings,data,refetch } = useQuery(['get-profile-data', user], () => 
+    fetch(`http://localhost:5000/get-profile-data?email=${user?.email}`,{
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        },
+    })
+        .then(res =>{
+            if (res.status === 401 || res.status === 403) {
+                signOut(auth)
+                navigate('/login')
+            }
+            return res.json()}
+            
+            )
         .then(data => setProfile(data))
     )
-
+    console.log(data)
     const { imgUrl: img, address, education, phone } = profile || {}
-    console.log(profile)
+    // console.log(profile)
     const imageHandler = async event => {
         setLoading(true)
         console.log(event.target.files[0])
@@ -54,7 +68,7 @@ const MyProfile = () => {
    
     const onSubmit = data => {
         console.log(data)
-        const { name, address, phone, email, education } = data
+        const { address, phone, education } = data
         const users = {
             phone,
             address,
@@ -73,7 +87,7 @@ const MyProfile = () => {
                     })  
                 }
             })
-
+            refetch()
     }
     return (
         <div className='bg-base-200  py-7'>
@@ -220,7 +234,7 @@ const MyProfile = () => {
                     </div>
                     <div class="form-control w-full">
                         <label htmlFor='img'
-                            class={`label w-[60%] mx-auto bg-[#1c1448] btn ${loading && 'loading'} p-0 m-0 my-7 rounded-full text-white text-center flex justify-center pl-5 items-center`}
+                            class={`label w-[60%] mx-auto bg-[#1c1448] btn ${loading && 'loading'} p-0 m-0 my-7 rounded-full text-white text-center flex justify-center items-center text-xs md:text-[17px] `}
 
                         >
                             {loading ? 'Uploading' : 'Upload Image'}
@@ -236,7 +250,7 @@ const MyProfile = () => {
                     </div>
                     <div className='mt-7 text-center'>
                         <button
-                            className='btn bg-slate-700 text-white'
+                            className={`btn bg-slate-700 text-white`}
                             disabled={imgUrl ? false : true}
                             
                         >Add Information</button>

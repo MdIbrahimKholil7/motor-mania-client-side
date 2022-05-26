@@ -3,9 +3,10 @@ import React from 'react';
 
 const TestimonialCard = ({ elem }) => {
     const { desc, name, img, address, ratings } = elem
+    console.log(elem)
     return (
         <div className='mb-5'>
-            <div className="  p-0 mx-3 shadow-xl image-full rounded-lg">
+            <div className="  p-0 mx-3 shadow-xl h-[370px] image-full rounded-lg">
                 <div className="card-body py-7 px-4 rounded-lg">
                     <p>{desc}</p>
                     <div className="card-actions flex flex-col items-center justify-start mt-6">
@@ -17,7 +18,7 @@ const TestimonialCard = ({ elem }) => {
                         <div>
                             <div className='text-center mb-2'>
                                 <h1 className='font-bold'>{name}</h1>
-                                <h2>{address}</h2>
+                                <h2 className='p-0'>{address}</h2>
                             </div>
                             <div className='flex'>
                                 {

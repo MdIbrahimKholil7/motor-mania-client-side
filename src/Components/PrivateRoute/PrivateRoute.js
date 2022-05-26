@@ -34,11 +34,9 @@ const PrivateRoute = () => {
                     })
                         .then(res => {
                             if (res.status === 401 || res.status === 403) {
-                                
                                 signOut(auth)
                                 navigate('/login')
                             }
-                           
                             return res.json()
                         })
                         .then(data => {

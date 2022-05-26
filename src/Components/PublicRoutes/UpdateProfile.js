@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import axiosPrivate from '../../api/axiosPrivate';
 import fetcher from '../../api/fetcher';
 import auth from '../../firebase_init';
 const UpdateProfile = () => {

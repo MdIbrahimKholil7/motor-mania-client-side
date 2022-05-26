@@ -5,7 +5,7 @@ const DashboardSidebar = ({children}) => {
     return (
         <div class="drawer drawer-mobile z-40">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-content flex flex-col px-4 min-h-screen">
+            <div class="drawer-content flex flex-col  min-h-screen">
                {/*  <!-- Page content here --> */}
                {children}
                 <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
