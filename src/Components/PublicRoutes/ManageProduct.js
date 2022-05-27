@@ -30,8 +30,8 @@ const ManageProduct = () => {
     }
     return (
         <div className='bg-base-300'>
-            <div class="overflow-x-auto px-3 py-12">
-                <table class="table table-zebra w-full">
+            <div className="overflow-x-auto px-3 py-12">
+                <table className="table table-zebra w-full">
 
                     <thead>
                         <tr className='text-center'>
@@ -71,7 +71,10 @@ const ManageProduct = () => {
                     />
                 }
 
-                <div className='flex justify-center items-center mb-5'>
+               
+
+            </div>
+            <div className='flex justify-center items-center mb-5'>
                     <div className='w-[100%]  flex items-center justify-center'>
                         <ReactPaginate
                             previousLabel={'Prev'}
@@ -95,8 +98,6 @@ const ManageProduct = () => {
                     </div>
                 </div>
 
-
-            </div>
         </div>
     );
 };

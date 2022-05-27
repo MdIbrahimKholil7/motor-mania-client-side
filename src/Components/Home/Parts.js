@@ -17,8 +17,8 @@ const Parts = () => {
     const location=useLocation()
    
     const chevronIcon = (<div className='flex '>
-        <div class="avatar placeholder mr-3">
-            <div class="bg-primary text-white rounded-full w-8">
+        <div className="avatar placeholder mr-3">
+            <div className="bg-primary text-white rounded-full w-8">
                 <div className='cursor-pointer' onClick={() => slideRef.current.slickNext()}>
                     <ChevronLeftIcon
                         className='w-7 '
@@ -27,8 +27,8 @@ const Parts = () => {
             </div>
         </div>
 
-        <div class="avatar placeholder">
-            <div class="bg-primary text-white rounded-full w-8" onClick={() => slideRef.current.slickPrev()}>
+        <div className="avatar placeholder">
+            <div className="bg-primary text-white rounded-full w-8" onClick={() => slideRef.current.slickPrev()}>
                 <div className='cursor-pointer'>
                     <ChevronRightIcon
                         className='w-7 '

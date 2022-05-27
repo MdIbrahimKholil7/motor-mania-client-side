@@ -77,15 +77,15 @@ const AddProduct = () => {
                     className='w-[70%] mx-auto mt-14 justify-center flex-col items-center'
                     onSubmit={handleSubmit(onSubmit)}
                 >
-                    <div class="form-control w-full">
-                        <label class="label">
-                            <span class="label-text mb-[-9px]">Product Name</span>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text mb-[-9px]">Product Name</span>
                         </label>
                         <input
                             type="text"
                             name='name'
                             placeholder="Product Name"
-                            class="input input-bordered w-full rounded-full"
+                            className="input input-bordered w-full rounded-full"
                             {...register("productName", {
                                 required: {
                                     value: true,
@@ -102,15 +102,15 @@ const AddProduct = () => {
                             </label>
                         }
                     </div>
-                    <div class="form-control w-full">
-                        <label class="label">
-                            <span class="label-text mb-[-9px]">Price</span>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text mb-[-9px]">Price</span>
                         </label>
                         <input
                             type="text"
                             name='price'
                             placeholder="Price"
-                            class="input input-bordered w-full rounded-full"
+                            className="input input-bordered w-full rounded-full"
                             {...register("price", {
                                 required: {
                                     value: true,
@@ -125,15 +125,15 @@ const AddProduct = () => {
                             </label>
                         }
                     </div>
-                    <div class="form-control w-full">
-                        <label class="label">
-                            <span class="label-text mb-[-9px]">Quantity</span>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text mb-[-9px]">Quantity</span>
                         </label>
                         <input
                             type="number"
                             name='quantity'
                             placeholder='Enter product quantity'
-                            class="input input-bordered w-full rounded-full"
+                            className="input input-bordered w-full rounded-full"
                             {...register("quantity", {
                                 required: {
                                     value: true,
@@ -151,15 +151,15 @@ const AddProduct = () => {
                         }
 
                     </div>
-                    <div class="form-control w-full">
-                        <label class="label">
-                            <span class="label-text mb-[-9px]">Category</span>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text mb-[-9px]">Category</span>
                         </label>
                         <input
                             type="number"
                             name='category'
                             placeholder='Enter product quantity'
-                            class="input input-bordered w-full rounded-full"
+                            className="input input-bordered w-full rounded-full"
                             {...register("category", {
                                 required: {
                                     value: true,
@@ -177,9 +177,9 @@ const AddProduct = () => {
                         }
 
                     </div>
-                    <div class="form-control mt-9">
+                    <div className="form-control mt-9">
                         <textarea
-                            class="textarea w-full textarea-bordered h-24"
+                            className="textarea w-full textarea-bordered h-24"
                             placeholder="Product description"
                             {...register("product", {
                                 required: {
@@ -196,7 +196,7 @@ const AddProduct = () => {
                             </label>
                         }
                     </div>
-                    <div class="form-control border-dotted border-2 border-gray-600 h-56 mt-9 flex justify-center items-center flex-col">
+                    <div className="form-control border-dotted border-2 border-gray-600 h-56 mt-9 flex justify-center items-center flex-col">
                         <div
                             className=''
                             {...getRootProps()}>

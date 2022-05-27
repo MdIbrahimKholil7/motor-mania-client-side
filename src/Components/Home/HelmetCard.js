@@ -6,12 +6,12 @@ const HelmetCard = ({ elem, height }) => {
 
     return (
         <div>
-            <div class={`card max-w-lg  shadow-md mx-2  p-0 my-2 cursor-pointer relative overflow-hidden card-parent duration-300 ease-in ${height ? `h-[${height}]` : 'h-auto'}`}>
+            <div className={`card max-w-lg  shadow-md mx-2  p-0 my-2 cursor-pointer relative overflow-hidden card-parent duration-300 ease-in ${height ? `h-[${height}]` : 'h-auto'}`}>
                
-                    <img className=' img-card h-36' src={img} alt={servicenName} class="rounded-xl" />
+                    <img className='rounded-xl img-card h-36' src={img} alt={servicenName}  />
               
-                <div class="card-body  p-2">
-                    <h2 class="card-title p-0">{servicenName}</h2>
+                <div className="card-body  p-2">
+                    <h2 className="card-title p-0">{servicenName}</h2>
                     <div className='flex justify-between items-center w-full pb-3 '>
                         <h1>${price}</h1>
                         <div className='flex'>

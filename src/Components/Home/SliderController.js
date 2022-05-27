@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SliderController = ({title,chevronIcon}) => {
-    console.log(title,chevronIcon)
     return (
         <div>
             <div className='flex justify-between items-center  mb-9'>

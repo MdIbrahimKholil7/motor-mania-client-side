@@ -18,15 +18,15 @@ const Social = () => {
     return (
         <div>
             {err}
-            <div class="flex flex-col w-full border-opacity-50">
-                <div class="divider">OR</div>
+            <div className="flex flex-col w-full border-opacity-50">
+                <div className="divider">OR</div>
             </div>
-            <div onClick={()=>signInWithGoogle()} class="form-control mt-6">
-                <button class="btn hover:bg-white bg-white text-black"
+            <div onClick={()=>signInWithGoogle()} className="form-control mt-6">
+                <button className="btn hover:bg-white bg-white text-black"
                 ><img className=' mr-3' src={google} alt="google" /> Login With Google</button>
             </div>
-            <div class="form-control mt-6">
-                <button class="btn hover:bg-white bg-white text-black"><img className=' mr-3' src={facebook} alt="google" /> Login With Facebook</button>
+            <div className="form-control mt-6">
+                <button className="btn hover:bg-white bg-white text-black"><img className=' mr-3' src={facebook} alt="google" /> Login With Facebook</button>
             </div>
         </div>
     );

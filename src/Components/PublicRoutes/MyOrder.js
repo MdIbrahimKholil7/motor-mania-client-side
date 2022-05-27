@@ -38,8 +38,8 @@ const MyOrder = () => {
     return (
         <div className='mx-4 mt-7 '>
             {
-                data?.length ? <div class="">
-                    <table class="table w-full">
+                data?.length ? <div className="">
+                    <table className="table w-full">
                         <thead>
                             <tr className='text-center'>
                                 <th></th>

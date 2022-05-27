@@ -63,18 +63,18 @@ const Login = () => {
     }
     return (
         <div>
-            <div class="hero min-h-screen bg-base-200">
-                <div class="hero-content justify-between w-full flex-col lg:flex-row-reverse lg:px-24 px-4 ">
-                    <div class="card flex-shrink-0 w-full sm:w-[440px] shadow-2xl bg-base-100">
-                        <div class="py-7">
-                            <div class="lg:px-5 px-5 w-full">
+            <div className="hero min-h-screen bg-base-200">
+                <div className="hero-content justify-between w-full flex-col lg:flex-row-reverse lg:px-24 px-4 ">
+                    <div className="card flex-shrink-0 w-full sm:w-[440px] shadow-2xl bg-base-100">
+                        <div className="py-7">
+                            <div className="lg:px-5 px-5 w-full">
                                 <form className='' onSubmit={handleSubmit(onSubmit)}>
                                     <h1 className='text-center font font-bold text-2xl mb-9 text-[#6358DC]'>Please Login</h1>
                                     <div className='relative mb-9'>
                                         <input
                                             type="email"
                                             name='email'
-                                            class="write w-full odd:"
+                                            className="write w-full odd:"
                                             placeholder
 
                                             {...register("email", {
@@ -90,8 +90,8 @@ const Login = () => {
 
                                             })}
                                         />
-                                        <label class="hello">Email</label>
-                                        <span class="enter"></span>
+                                        <label className="hello">Email</label>
+                                        <span className="enter"></span>
                                         <label className="label">
                                             {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                                             {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
@@ -101,7 +101,7 @@ const Login = () => {
                                     <div className='relative mb-9'>
                                         <input
                                             type="password"
-                                            class="write w-full odd:"
+                                            className="write w-full odd:"
                                             placeholder
                                             {...register("password", {
                                                 required: {
@@ -114,8 +114,8 @@ const Login = () => {
                                                 }
                                             })}
                                         />
-                                        <label class="hello">Password</label>
-                                        <span class="enter"></span>
+                                        <label className="hello">Password</label>
+                                        <span className="enter"></span>
                                         <label className="label">
                                             {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                             {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
@@ -129,8 +129,8 @@ const Login = () => {
                                     {
                                         logError && <p className='text-red-500  text-center mb-[-4px]'>{logError}</p>
                                     }
-                                    <div class="form-control mt-6">
-                                        <button class="btn hover:bg-[#6358DC] bg-[#6358DC] text-white">Login</button>
+                                    <div className="form-control mt-6">
+                                        <button className="btn hover:bg-[#6358DC] bg-[#6358DC] text-white">Login</button>
                                     </div>
                                     <p className='py-3'>Already have an account ? <Link state={{ from: from }} replace className='text-[#6358DC] cursor-pointer' to='/register'>Register</Link></p>
                                     <Social />
@@ -138,7 +138,7 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="text-center lg:text-left hidden lg:block">
+                    <div className="text-center lg:text-left hidden lg:block">
                         <img src={illustration} className='w-[330px] object-contain' alt="" />
                     </div>
                 </div>

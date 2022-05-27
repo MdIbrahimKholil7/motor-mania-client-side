@@ -63,9 +63,9 @@ const AddReview = () => {
                         onSubmit={handleSubmit(onSubmit)}
                         className='w-full'
                     >
-                        <div class="form-control">
+                        <div className="form-control">
                             <textarea
-                                class="textarea w-full textarea-bordered h-24"
+                                className="textarea w-full textarea-bordered h-24"
                                 placeholder="Add review"
                                 {...register("review", {
                                     required: {

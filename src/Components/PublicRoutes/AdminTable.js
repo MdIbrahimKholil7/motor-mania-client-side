@@ -33,19 +33,19 @@ const AdminTable = ({ userData, index, refetch }) => {
             <tr className='text-center'>
                 <td>{index + 1}</td>
                 <td>
-                    <div class="flex items-center justify-center space-x-3">
-                        <div class="avatar">
-                            <div class="mask mask-squircle w-12 h-12 mx-auto">
+                    <div className="flex items-center justify-center space-x-3">
+                        <div className="avatar">
+                            <div className="mask mask-squircle w-12 h-12 mx-auto">
                                 <img src={imgUrl ? imgUrl : users} alt="Avatar" />
                             </div>
                         </div>
                         <div>
-                            <div class="font-bold">{name}</div>
+                            <div className="font-bold">{name}</div>
                         </div>
                     </div>
                 </td>
                 <td>
-                    <span class="badge badge-ghost badge-sm">{email}</span>
+                    <span className="badge badge-ghost badge-sm">{email}</span>
                 </td>
                 <td>
                     {
@@ -53,7 +53,7 @@ const AdminTable = ({ userData, index, refetch }) => {
                     }
                 </td>
                 <th>
-                    <button onClick={handleDelete} class="btn-xs btn btn-primary">Delete</button>
+                    <button onClick={handleDelete} className="btn-xs btn btn-primary">Delete</button>
                 </th>
             </tr>
 

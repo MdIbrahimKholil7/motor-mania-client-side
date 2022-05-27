@@ -8,16 +8,16 @@ const DashboardSidebar = ({ children }) => {
     const [user] = useAuthState(auth)
     const [admin] = useAdmin(user)
     return (
-        <div class="drawer drawer-mobile z-40">
-            <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-content flex flex-col  min-h-screen">
+        <div className="drawer drawer-mobile z-40">
+            <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content flex flex-col  min-h-screen">
                 {/*  <!-- Page content here --> */}
                 {children}
                 
             </div>
-            <div class="drawer-side shadow-xl">
-                <label for="dashboard-sidebar" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto  bg-base-100 w-[220px] text-base-content">
+            <div className="drawer-side shadow-xl">
+                <label for="dashboard-sidebar" className="drawer-overlay"></label>
+                <ul className="menu p-4 overflow-y-auto  bg-base-100 w-[220px] text-base-content">
                     {/*  <!-- Sidebar content here --> */}
                     <li className='font font-bold text-xl'><Link to='/dashboard'>My Profile</Link></li>
                     {

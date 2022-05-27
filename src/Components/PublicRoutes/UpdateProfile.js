@@ -42,15 +42,15 @@ const UpdateProfile = () => {
                 className='w-[70%] mx-auto mt-14 justify-center flex-col items-center'
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <div class="form-control w-full">
-                    <label class="label">
-                        <span class="label-text mb-[-9px]">Phone</span>
+                <div className="form-control w-full">
+                    <label className="label">
+                        <span className="label-text mb-[-9px]">Phone</span>
                     </label>
                     <input
                         type="number"
                         name='phone'
                         placeholder={'Phone'}
-                        class="input input-bordered w-full rounded-full"
+                        className="input input-bordered w-full rounded-full"
 
 
                         {...register("phone", {
@@ -70,15 +70,15 @@ const UpdateProfile = () => {
                     }
 
                 </div>
-                <div class="form-control w-full">
-                    <label class="label">
-                        <span class="label-text mb-[-9px]">Address</span>
+                <div className="form-control w-full">
+                    <label className="label">
+                        <span className="label-text mb-[-9px]">Address</span>
                     </label>
                     <input
                         type="text"
                         name='address'
                         placeholder='Address'
-                        class="input input-bordered w-full rounded-full"
+                        className="input input-bordered w-full rounded-full"
 
 
                         {...register("address", {
@@ -96,15 +96,15 @@ const UpdateProfile = () => {
                         </label>
                     }
                 </div>
-                <div class="form-control w-full">
-                    <label class="label">
-                        <span class="label-text mb-[-9px]">Education</span>
+                <div className="form-control w-full">
+                    <label className="label">
+                        <span className="label-text mb-[-9px]">Education</span>
                     </label>
                     <input
                         type="text"
                         name='education'
                         placeholder='Education'
-                        class="input input-bordered w-full rounded-full"
+                        className="input input-bordered w-full rounded-full"
 
                         {...register("education", {
                             required: {
@@ -122,7 +122,7 @@ const UpdateProfile = () => {
                 </div>
 
                 <div className='mt-7 text-center'>
-                    <button for="my-modal" class=" modal-button btn bg-pink-900 text-white ml-7">Update Profile</button>
+                    <button for="my-modal" className=" modal-button btn bg-pink-900 text-white ml-7">Update Profile</button>
                 </div>
             </form>
         </div>

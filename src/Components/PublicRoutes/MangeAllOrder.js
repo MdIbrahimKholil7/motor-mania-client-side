@@ -38,8 +38,8 @@ const MangeAllOrder = () => {
     }
     return (
         <div className='bg-base-300 '>
-            <div class="overflow-x-auto px-4 py-9">
-                <table class="table table-zebra w-full">
+            <div className="overflow-x-auto px-4 py-9">
+                <table className="table table-zebra w-full">
 
                     <thead>
                         <tr className='text-center'>

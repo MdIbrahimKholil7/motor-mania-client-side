@@ -139,11 +139,11 @@ const PrivateRoute = () => {
                 </div>
             </div>
 
-            <div class="lg:px-14 py-9 bg-base-100" >
+            <div className="lg:px-14 py-9 bg-base-100" >
                 <div className='text-center text-2xl font font-bold mb-14'>
                     <h2>Product Order Form</h2>
                 </div>
-                <div class="flex justify-between flex-col lg:flex-row items-center">
+                <div className="flex justify-between flex-col lg:flex-row items-center">
                     <form className='md:w-[50%] w-full px-10 md:px-0 mb-12 md:mb-0'
                         onSubmit={handleSubmit(onSubmit)}
                     >
@@ -177,21 +177,21 @@ const PrivateRoute = () => {
 
                         </div>
 
-                        <div class="form-control w-full mb-5">
-                            <label class="label justify-start items-start m-0 p-0  mb-3">
+                        <div className="form-control w-full mb-5">
+                            <label className="label justify-start items-start m-0 p-0  mb-3">
                                 <span>
                                     <InboxIcon
                                         className='w-5 mr-2'
                                     />
                                 </span>
-                                <span class="label-text">Email</span>
+                                <span className="label-text">Email</span>
                             </label>
                             <input
                                 type="email"
                                 value={user?.email}
                                 readOnly
                                 placeholder="email"
-                                class="input input-bordered form-border mb-3 w-full"
+                                className="input input-bordered form-border mb-3 w-full"
                                 {...register("email", {
                                     required: {
                                         value: true,
@@ -204,19 +204,19 @@ const PrivateRoute = () => {
                             {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
 
                         </div>
-                        <div class="form-control w-full mb-5">
-                            <label class="label justify-start items-start m-0 p-0  mb-3">
+                        <div className="form-control w-full mb-5">
+                            <label className="label justify-start items-start m-0 p-0  mb-3">
                                 <span>
                                     <InboxIcon
                                         className='w-5 mr-2'
                                     />
                                 </span>
-                                <span class="label-text">Quantity</span>
+                                <span className="label-text">Quantity</span>
                             </label>
                             <input
                                 type="number"
                                 placeholder="Quantity"
-                                class="input input-bordered form-border mb-3 w-full"
+                                className="input input-bordered form-border mb-3 w-full"
                                 value={value}
                                 {...register("quantitys", {
                                     required: {
@@ -236,20 +236,20 @@ const PrivateRoute = () => {
                             }
 
                         </div>
-                        <div class="form-control w-full mb-5">
-                            <label class="label justify-start items-start m-0 p-0  mb-3">
+                        <div className="form-control w-full mb-5">
+                            <label className="label justify-start items-start m-0 p-0  mb-3">
                                 <span>
                                     <CreditCardIcon
                                         className='w-5 mr-2'
                                     />
                                 </span>
-                                <span class="label-text">Address</span>
+                                <span className="label-text">Address</span>
 
                             </label>
                             <input
                                 type="text"
                                 placeholder="Address"
-                                class="input input-bordered form-border mb-3 w-full"
+                                className="input input-bordered form-border mb-3 w-full"
                                 {...register("address", {
                                     required: {
                                         value: true,
@@ -262,11 +262,11 @@ const PrivateRoute = () => {
                             {errors.address?.type === 'required' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
 
                         </div>
-                        <div class="form-control">
-                            <button disabled={value < 100 || value > quantity} class="btn hover:bg-[#6358DC]  bg-[#6358DC] text-white" type='submit'>Order</button>
+                        <div className="form-control">
+                            <button disabled={value < 100 || value > quantity} className="btn hover:bg-[#6358DC]  bg-[#6358DC] text-white" type='submit'>Order</button>
                         </div>
                     </form>
-                    <div class="Yorder w-[300px]">
+                    <div className="Yorder w-[300px]">
                         <table>
                             <tr>
                                 <th colspan="2">Your order</th>

@@ -50,18 +50,18 @@ const Login = () => {
 
     return (
         <div>
-            <div class="hero min-h-screen">
-                <div class="hero-content justify-between w-full flex-col lg:flex-row-reverse lg:px-12 px-4 ">
-                    <div class="card flex-shrink-0 w-full sm:w-[440px] shadow-2xl bg-base-100">
-                        <div class="py-7">
-                            <div class="lg:px-5 px-5 w-full">
+            <div className="hero min-h-screen">
+                <div className="hero-content justify-between w-full flex-col lg:flex-row-reverse lg:px-12 px-4 ">
+                    <div className="card flex-shrink-0 w-full sm:w-[440px] shadow-2xl bg-base-100">
+                        <div className="py-7">
+                            <div className="lg:px-5 px-5 w-full">
                                 <form className='' onSubmit={handleSubmit(onSubmit)}>
                                     <h1 className='text-center font font-bold text-2xl mb-9 text-[#6358DC]'>Register</h1>
 
                                     <div className='relative mb-9'>
                                         <input
                                             type="text"
-                                            class="write w-full odd:"
+                                            className="write w-full odd:"
                                             placeholder=''
                                             name='name'
                                             {...register("name", {
@@ -73,8 +73,8 @@ const Login = () => {
                                             })}
 
                                         />
-                                        <label for='name' class={`hello mb-9 `}>Username</label>
-                                        <span class="enter"></span>
+                                        <label for='name' className={`hello mb-9 `}>Username</label>
+                                        <span className="enter"></span>
                                         <label className="label">
                                             {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
 
@@ -84,7 +84,7 @@ const Login = () => {
                                     <div className='relative mb-9'>
                                         <input
                                             type="text"
-                                            class="write w-full odd:"
+                                            className="write w-full odd:"
                                             {...register("email", {
                                                 required: {
                                                     value: true,
@@ -96,8 +96,8 @@ const Login = () => {
                                                 }
                                             })}
                                         />
-                                        <label class="hello">Email</label>
-                                        <span class="enter"></span>
+                                        <label className="hello">Email</label>
+                                        <span className="enter"></span>
                                         <label className="label">
                                             {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                                             {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
@@ -107,7 +107,7 @@ const Login = () => {
                                     <div className='relative mb-9'>
                                         <input
                                             type="text"
-                                            class="write w-full odd:"
+                                            className="write w-full odd:"
                                             {...register("confirmPassword", {
                                                 required: {
                                                     value: true,
@@ -119,8 +119,8 @@ const Login = () => {
                                                 }
                                             })}
                                         />
-                                        <label class="hello">Confirm Password</label>
-                                        <span class="enter"></span>
+                                        <label className="hello">Confirm Password</label>
+                                        <span className="enter"></span>
                                         <label className="label">
                                             {errors.confirmPassword?.type === 'required' && <span className="label-text-alt text-red-500">{errors.confirmPassword.message}</span>}
                                             {errors.confirmPassword?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.confirmPassword.message}</span>}
@@ -130,7 +130,7 @@ const Login = () => {
                                     <div className='relative mb-9'>
                                         <input
                                             type="text"
-                                            class="write w-full odd:"
+                                            className="write w-full odd:"
                                             {...register("password", {
                                                 required: {
                                                     value: true,
@@ -142,8 +142,8 @@ const Login = () => {
                                                 }
                                             })}
                                         />
-                                        <label class="hello">Password</label>
-                                        <span class="enter"></span>
+                                        <label className="hello">Password</label>
+                                        <span className="enter"></span>
                                         <label className="label">
                                             {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                             {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
@@ -153,8 +153,8 @@ const Login = () => {
                                         </label>
                                     </div>
 
-                                    <div class="form-control mt-6">
-                                        <button class="btn hover:bg-[#6358DC] bg-[#6358DC] text-white">Register</button>
+                                    <div className="form-control mt-6">
+                                        <button className="btn hover:bg-[#6358DC] bg-[#6358DC] text-white">Register</button>
                                     </div>
                                     <p className='py-3'>Don't have an account ? <Link className='text-[#6358DC] cursor-pointer' to='/login'>Login</Link></p>
                                     <Social />
@@ -162,7 +162,7 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="text-center lg:text-left hidden lg:block lg:w-[440px] xl:w-[540px] register ">
+                    <div className="text-center lg:text-left hidden lg:block lg:w-[440px] xl:w-[540px] register ">
                         <h1 className='text-white text-4xl font font-bold mr-16'>Glad To See You</h1>
                         <p className='text-white text-xl font mt-3 mr-16 '>Please Register</p>
                     </div>

@@ -20,8 +20,8 @@ const Helmet = () => {
     }, [])
     console.log(helmet)
     const chevronIcon = (<div className='flex '>
-        <div class="avatar placeholder mr-3">
-            <div class="bg-primary text-white rounded-full w-8">
+        <div className="avatar placeholder mr-3">
+            <div className="bg-primary text-white rounded-full w-8">
                 <div className='cursor-pointer' onClick={() => slideRef.current.slickNext()}>
                     <ChevronLeftIcon
                         className='w-7 '
@@ -30,8 +30,8 @@ const Helmet = () => {
             </div>
         </div>
 
-        <div class="avatar placeholder">
-            <div class="bg-primary text-white rounded-full w-8" onClick={() => slideRef.current.slickPrev()}>
+        <div className="avatar placeholder">
+            <div className="bg-primary text-white rounded-full w-8" onClick={() => slideRef.current.slickPrev()}>
                 <div className='cursor-pointer'>
                     <ChevronRightIcon
                         className='w-7 '
@@ -60,12 +60,12 @@ const Helmet = () => {
                     }}
                     className='md:w-[25%] rounded-xl py-7'
                 >
-                    <div class="hero">
-                        <div class="hero-overlay bg-[#00000000] bg-opacity-60"></div>
-                        <div class="hero-content text-center text-white">
-                            <div class="max-w-md">
+                    <div className="hero">
+                        <div className="hero-overlay bg-[#00000000] bg-opacity-60"></div>
+                        <div className="hero-content text-center text-white">
+                            <div className="max-w-md">
                                 <div className='mb-3'>
-                                    <h1 class="mb-2 text-3xl font-bold">Helmet</h1>
+                                    <h1 className="mb-2 text-3xl font-bold">Helmet</h1>
                                     <p className='p-0 text-white'>Low Prices</p>
                                     <p className='p-0 text-white'>Match Guarantee</p>
                                 </div>

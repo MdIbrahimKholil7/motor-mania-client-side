@@ -96,9 +96,9 @@ const MyProfile = () => {
                     className='w-[70%] mx-auto mt-14 justify-center flex-col items-center'
                     onSubmit={handleSubmit(onSubmit)}
                 >
-                    <div class="form-control w-full">
-                        <label class="label">
-                            <span class="label-text mb-[-9px]">FullName</span>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text mb-[-9px]">FullName</span>
                         </label>
                         <input
                             type="text"
@@ -106,7 +106,7 @@ const MyProfile = () => {
                             placeholder="FullName"
                             value={user?.displayName}
                             readOnly
-                            class="input input-bordered w-full rounded-full"
+                            className="input input-bordered w-full rounded-full"
                             {...register("name", {
                                 required: {
                                     value: true,
@@ -123,15 +123,15 @@ const MyProfile = () => {
                             </label>
                         }
                     </div>
-                    <div class="form-control w-full">
-                        <label class="label">
-                            <span class="label-text mb-[-9px]">Email</span>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text mb-[-9px]">Email</span>
                         </label>
                         <input
                             type="text"
                             name='email'
                             placeholder="Email"
-                            class="input input-bordered w-full rounded-full"
+                            className="input input-bordered w-full rounded-full"
                             value={user?.email}
                             readOnly
                             {...register("email", {
@@ -151,15 +151,15 @@ const MyProfile = () => {
                             </label>
                         }
                     </div>
-                    <div class="form-control w-full">
-                        <label class="label">
-                            <span class="label-text mb-[-9px]">Phone</span>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text mb-[-9px]">Phone</span>
                         </label>
                         <input
                             type="number"
                             name='phone'
                             placeholder={phone ? phone:'Phone'}
-                            class="input input-bordered w-full rounded-full"
+                            className="input input-bordered w-full rounded-full"
 
                          
                             {...register("phone", {
@@ -179,15 +179,15 @@ const MyProfile = () => {
                         }
 
                     </div>
-                    <div class="form-control w-full">
-                        <label class="label">
-                            <span class="label-text mb-[-9px]">Address</span>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text mb-[-9px]">Address</span>
                         </label>
                         <input
                             type="text"
                             name='address'
                             placeholder={address ? address:'Address'}
-                            class="input input-bordered w-full rounded-full"
+                            className="input input-bordered w-full rounded-full"
                             
                             
                             {...register("address", {
@@ -205,15 +205,15 @@ const MyProfile = () => {
                             </label>
                         }
                     </div>
-                    <div class="form-control w-full">
-                        <label class="label">
-                            <span class="label-text mb-[-9px]">Education</span>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text mb-[-9px]">Education</span>
                         </label>
                         <input
                             type="text"
                             name='education'
                             placeholder={education ? education:'Education'}
-                            class="input input-bordered w-full rounded-full"
+                            className="input input-bordered w-full rounded-full"
                         
                             {...register("education", {
                                 required: {
@@ -229,9 +229,9 @@ const MyProfile = () => {
                             </label>
                         }
                     </div>
-                    <div class="form-control w-full">
+                    <div className="form-control w-full">
                         <label htmlFor='img'
-                            class={`label w-[60%] mx-auto bg-[#1c1448] btn ${loading && 'loading'} p-0 m-0 my-7 rounded-full text-white text-center flex justify-center items-center text-xs md:text-[17px] `}
+                            className={`label w-[60%] mx-auto bg-[#1c1448] btn ${loading && 'loading'} p-0 m-0 my-7 rounded-full text-white text-center flex justify-center items-center text-xs md:text-[17px] `}
 
                         >
                             {loading ? 'Uploading' : 'Upload Image'}
@@ -241,7 +241,7 @@ const MyProfile = () => {
                             placeholder=""
                             id='img'
                             onChange={imageHandler}
-                            class="input input-bordered hidden w-full rounded-full"
+                            className="input input-bordered hidden w-full rounded-full"
                             disabled={address && true}
                         />
                     </div>
@@ -252,7 +252,7 @@ const MyProfile = () => {
                             
                         >Add Information</button>
                    
-                        <span onClick={()=>navigate('/dashboard/updateProfile')} for="my-modal" class=" modal-button btn bg-pink-900 text-white ml-7">Update Profile</span>
+                        <span onClick={()=>navigate('/dashboard/updateProfile')} for="my-modal" className=" modal-button btn bg-pink-900 text-white ml-7">Update Profile</span>
                     </div>
                 </form>
             </div>
