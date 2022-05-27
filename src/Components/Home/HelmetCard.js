@@ -3,7 +3,7 @@ import React from 'react';
 
 const HelmetCard = ({ elem, height }) => {
     const { servicenName, img, price, ratings } = elem || {}
-    console.log(ratings)
+
     return (
         <div>
             <div class={`card max-w-lg  shadow-md mx-2  p-0 my-2 cursor-pointer relative overflow-hidden card-parent duration-300 ease-in ${height ? `h-[${height}]` : 'h-auto'}`}>

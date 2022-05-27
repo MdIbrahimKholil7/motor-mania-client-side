@@ -67,6 +67,76 @@
   align-items: center;
   flex-direction: column;
 }
+
+/* paginate style  */
+.paginateContainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.page-btn{
+  padding: 1rem;
+  margin: 0 1rem;
+}
+.previous{
+  color: #fff;
+  background-color: rgb(9, 177, 244);
+  padding: 1rem 1.6rem;
+  border-radius: .5rem;
+}
+.active-btn{
+  background: rgb(9, 177, 244);
+  color: #fff;
+  border-radius: .3rem;
+  /* padding: 1rem; */
+}
+.link-btn{
+  text-decoration: none;
+  color: #fff;
+}
+
+
+
+
+@media screen and (max-width:518px) {
+  .paginateContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .page-btn{
+    padding: .7rem;
+    margin: 0 .6rem;
+  }
+  .previous{
+    color: #fff;
+    background-color: rgb(9, 177, 244);
+    padding: .7rem 1.2rem;
+    border-radius: .5rem;
+  }
+  .active-btn{
+    background: rgb(9, 177, 244);
+    color: #fff;
+    border-radius: .3rem;
+    /* padding: 1rem; */
+  }
+  .link-btn{
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  
+  
+}
+.td{
+  color: black !important;
+}
+
+
 @media screen and (max-width:998px) {
   .register{
     display: none ;

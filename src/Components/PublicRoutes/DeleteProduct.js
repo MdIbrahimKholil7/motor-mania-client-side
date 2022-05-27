@@ -2,14 +2,18 @@
 import React, { useState } from 'react';
 import fetcher from '../../api/fetcher';
 
-const DeleteProduct = ({refetch,openModal,setOpenModal,deleteUrl}) => {
+const DeleteProduct = ({ refetch, openModal, setOpenModal, deleteUrl }) => {
     console.log(deleteUrl)
-    const handleDelete=async()=>{
-        const {data}=await fetcher.delete(`${deleteUrl}/${openModal}`)
-        console.log(data)
-        refetch()
-        setOpenModal(null)
-    }   
+    console.log(openModal)
+    const handleDelete = async () => {
+        console.log('click')
+        
+            const { data } = await fetcher.delete(`${deleteUrl}/${openModal}`)
+            console.log(data)
+            refetch()
+            setOpenModal(null)
+        
+    }
     return (
         <div>
             <input type="checkbox" id="delete-modal" class="modal-toggle" />

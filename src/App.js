@@ -15,6 +15,7 @@ import Payment from './Components/PublicRoutes/Payment';
 import UpdateProfile from './Components/PublicRoutes/UpdateProfile';
 import ManageProduct from './Components/PublicRoutes/ManageProduct';
 import RequireAdmin from './Components/Shared/RequireAdmin';
+import RequireUser from './Components/Shared/RequireUser';
 import MakeAdmin from './Components/PublicRoutes/MakeAdmin';
 import ManageAllOrder from './Components/PublicRoutes/MangeAllOrder';
 import AddProduct from './Components/PublicRoutes/AddProduct';
@@ -35,15 +36,29 @@ function App() {
           <Route path='/dashBoard' element={<Dashboard />}>
             <Route index element={<MyProfile />} />
             <Route path='myOrder' element={<MyOrder />} />
-            <Route path='addReview' element={<AddReview />} />
+            <Route path='addReview' element={<RequireUser>
+              <AddReview />
+            </RequireUser>} />
             <Route path='updateProfile' element={<UpdateProfile />} />
             <Route path='payment/:id' element={<Payment />} />
 
-          {/* Admin route  */}
-          <Route path='manageProduct' element={<RequireAdmin><ManageProduct/></RequireAdmin>}/>
-          <Route path='makeAdmin' element={<RequireAdmin><MakeAdmin/></RequireAdmin>}/>
-          <Route path='manageAllOrder' element={<RequireAdmin><ManageAllOrder/></RequireAdmin>}/>
-          <Route path='addProduct' element={<RequireAdmin><AddProduct/></RequireAdmin>}/>
+            {/* Admin route  */}
+            <Route path='manageProduct' element={<RequireAdmin>
+              <ManageProduct />
+            </RequireAdmin>}
+            />
+            <Route path='makeAdmin' element={<RequireAdmin>
+              <MakeAdmin />
+            </RequireAdmin>}
+            />
+            <Route path='manageAllOrder' element={<RequireAdmin>
+              <ManageAllOrder />
+            </RequireAdmin>}
+            />
+            <Route path='addProduct' element={<RequireAdmin>
+              <AddProduct />
+            </RequireAdmin>}
+            />
 
           </Route>
           <Route path='/register' element={<Register />} />
@@ -51,7 +66,7 @@ function App() {
           <Route path='/privateRoute/:id' element={<RequireAuth>
             <PrivateRoute />
           </RequireAuth>}></Route>
-         {/*  <Route path='/payment/:id' element={<RequireAuth>
+          {/*  <Route path='/payment/:id' element={<RequireAuth>
             <Payment />
           </RequireAuth>}></Route> */}
 

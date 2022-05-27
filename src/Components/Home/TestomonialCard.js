@@ -3,7 +3,7 @@ import React from 'react';
 
 const TestimonialCard = ({ elem }) => {
     const { desc, name, img, address, ratings } = elem
-    console.log(elem)
+  
     return (
         <div className='mb-5'>
             <div className="  p-0 mx-3 shadow-xl h-[370px] image-full rounded-lg">

@@ -43,15 +43,7 @@ const AddReview = () => {
             console.log(res)
            return res.json()}) 
 
-        /*    fetch(`http://localhost:5000/add-review/`,{
-               method:'PUT',
-               headers:{
-                   'content-type':'application/json'
-               },
-               body:JSON.stringify(usrReview)
-           })
-           .then(res=>res.json())
-           .then(data=>console.log(data)) */
+      
         reset()
     }
     return (
@@ -59,11 +51,11 @@ const AddReview = () => {
             <div>
                 <h1 className='text-2xl text-center font font-bold my-9'>Add Your Review</h1>
                 <div className='w-[70%] mx-auto '>
-                    <div className=''>
+                    <div className='flex justify-center mb-9'>
                         <ReactStars
                             count={5}
                             onChange={handleStar}
-                            size={24}
+                            size={34}
                             activeColor="#ffd700"
                         />,
                     </div>

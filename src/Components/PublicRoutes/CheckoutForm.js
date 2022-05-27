@@ -17,6 +17,7 @@ const CheckoutForm = ({ order }) => {
     console.log(clientSecret)
     useEffect(() => {
         (async () => {
+            // get client secret 
             const { data } = await axiosPrivate.post(`http://localhost:5000/create-payment-intent`, { price: total })
             console.log(data)
             setClientSecret(data.clientSecret)

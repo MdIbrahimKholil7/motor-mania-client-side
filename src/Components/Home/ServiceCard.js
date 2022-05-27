@@ -6,6 +6,7 @@ const ServiceCard = ({ elem }) => {
     const [lessDetails, setLessDetail] = useState('')
     const [open,setOpen]=useState(true)
     const { img, servicenName, price, quantity, desc,_id } = elem
+    console.log(elem)
     const navigate=useNavigate()
     useEffect(() => {
         const details = desc.length > 70 ? `${desc.slice(0, 69)}...` : desc
