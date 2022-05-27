@@ -3,6 +3,7 @@ import fetcher from "./fetcher"
 
 const useToken = (user) => {
     const [token, setToken] = useState('')
+    console.log(user)
     useEffect(() => {
         (async () => {
             if (user?.email) {

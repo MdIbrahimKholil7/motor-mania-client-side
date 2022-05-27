@@ -13,7 +13,7 @@ const Helmet = () => {
     const slideRef = useRef(null)
     useEffect(() => {
         (async () => {
-            const { data } = await fetcher(`get-helmet?name=helmet`)
+            const { data } = await fetcher.get(`get-helmet?name=helmet`)
             console.log(data)
             setHelmet(data)
         })()

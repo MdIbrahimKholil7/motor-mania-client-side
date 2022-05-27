@@ -51,7 +51,7 @@ const SliderProduct = ({helmet,slideRef,show,auto}) => {
                     helmet && helmet.map(elem => <HelmetCard
                         key={elem._id}
                         elem={elem}
-                        height={'300px'}
+                        height={'500px'}
                     />)
                 }
             </Slider>

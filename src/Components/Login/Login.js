@@ -14,6 +14,7 @@ const Login = () => {
     const [logError, setLogError] = useState('')
     const [user]=useAuthState(auth)
     const [token]=useToken(user)
+    // console.log(user)
     const [email, setEmail] = useState('')
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(

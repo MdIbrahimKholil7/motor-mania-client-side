@@ -16,7 +16,6 @@ const Login = () => {
     const location = useLocation()
     const navigate = useNavigate()
     let from = location.state?.from || "/";
-    console.log(location)
     const [
         createUserWithEmailAndPassword,
         users,
@@ -25,10 +24,11 @@ const Login = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     // console.log(user)
     const [updateProfile, updating] = useUpdateProfile(auth);
-
     if (loading || updating) {
+        console.log(loading)
         return <Loading />
     }
+
     if (error) {
         return
     }
