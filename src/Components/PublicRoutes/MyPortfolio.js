@@ -44,9 +44,9 @@ const MyPortFolio = () => {
                 <div className='md:w-[50%] mx-auto h-auto py-7 px-5 rounded-2xl my-9 border-solid border-2 border-gray-600'>
                     <h1 className='text-center font-bold my-7 text-2xl'>My Project Link</h1>
                     <h3>Warehouse Project</h3>
-                    <a className=' underline mb-3 block' href="https://cargo-warehouse.web.app/" target='_blank'>https://cargo-warehouse.web.app/</a>
+                    <a className=' underline mb-3 block text-green-600' href="https://cargo-warehouse.web.app/" target='_blank'>https://cargo-warehouse.web.app/</a>
                     <h3>Gym Website</h3>
-                    <a className=' underline p-0 mb-3 block' href="https://cargo-warehouse.web.app/" target='_blank'>https://cargo-warehouse.web.app/</a>
+                    <a className=' underline p-0 text-green-600 mb-3 block' href="https://cargo-warehouse.web.app/" target='_blank'>https://cargo-warehouse.web.app/</a>
                 </div>
             </div>
       

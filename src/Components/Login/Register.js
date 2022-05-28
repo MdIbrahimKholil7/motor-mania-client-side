@@ -106,7 +106,7 @@ const Login = () => {
 
                                     <div className='relative mb-9'>
                                         <input
-                                            type="text"
+                                            type="password"
                                             className="write w-full odd:"
                                             {...register("confirmPassword", {
                                                 required: {
@@ -129,7 +129,7 @@ const Login = () => {
 
                                     <div className='relative mb-9'>
                                         <input
-                                            type="text"
+                                        type="password"
                                             className="write w-full odd:"
                                             {...register("password", {
                                                 required: {

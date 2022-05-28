@@ -19,6 +19,7 @@ import RequireUser from './Components/Shared/RequireUser';
 import MakeAdmin from './Components/PublicRoutes/MakeAdmin';
 import ManageAllOrder from './Components/PublicRoutes/MangeAllOrder';
 import AddProduct from './Components/PublicRoutes/AddProduct';
+import NotFound from './Components/Shared/NotFound';
 function App() {
  
   return (
@@ -69,7 +70,7 @@ function App() {
           {/*  <Route path='/payment/:id' element={<RequireAuth>
             <Payment />
           </RequireAuth>}></Route> */}
-
+        <Route path='*' element={<NotFound/>}/>
         </Routes>
         <Footer />
       </Navbar>

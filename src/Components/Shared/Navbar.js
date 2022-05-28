@@ -56,7 +56,7 @@ const Navbar = ({ children }) => {
 
 
                                 {
-                                    user ? <button onClick={() => signOut(auth)} className='btn rounded-full bg-primary text-white '>LogOut</button> : <li className='font-bold p-0 hover:bg-none lg:text-[18px] xl:text-2xl'><Link to='/login'>Login</Link></li>
+                                    user ? <button onClick={() => signOut(auth)} className='btn rounded-full bg-primary text-white '>LogOut</button> : <li className='font-bold p-0 hover:bg-none lg:text-[18px] xl:text-2xl'><Link className='p-0' to='/login'>Login</Link></li>
                                 }
 
                             </ul>

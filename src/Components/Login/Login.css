@@ -17,7 +17,8 @@ input:focus~.hello,
 input:valid~.hello {
     display: block;
     color: black;
-    top: -26px;
+    top: -34px;
+    left: -15px;
     font-size: 14px;
     /* background: #fff; */
     /* background: #000; */

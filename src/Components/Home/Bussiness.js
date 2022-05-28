@@ -1,23 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FaFlag, FaUserFriends, FaCompass, FaRegBookmark } from 'react-icons/fa';
-import CountUp, { useCountUp } from 'react-countup';
+// import CountUp, { useCountUp } from 'react-countup';
 const Bussiness = () => {
     /*  const {countUp,start,}=useCountUp({
          duration:3,
          end:300
      })
       */
-    useEffect(() => {
+  /*   useEffect(() => {
         window.addEventListener('scroll', (e) => {
             console.log(this.scrollY)
             if (window.scrollY > 300) {
                 console.log(window.pageYOffset == window.scrollY)
             }
         })
-    }, [])
+    }, []) */
     return (
         <div>
-            <h1><CountUp end={300} /></h1>
+           
             <div className=" grid sm:grid-cols-2 md:grid-cols-4 justify-items-center rounded-none py-9 shadow gradient w-full px-9">
                 <div className="stat pl-20 md:pl-0">
                     < FaFlag
