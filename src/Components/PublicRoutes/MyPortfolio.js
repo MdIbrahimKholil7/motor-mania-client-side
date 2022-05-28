@@ -20,13 +20,6 @@ const MyPortFolio = () => {
                 </div>
             </div>
 
-
-
-
-
-
-
-
             <div>
                 <div className='mt-9 mb-9 rounded-2xl py-7 w-[50%] mx-auto border-solid border-2 border-gray-600' >
                    
@@ -39,6 +32,7 @@ const MyPortFolio = () => {
                                 <li>Bootstrap</li>
                                 <li>JavaScript</li>
                                 <li>React</li>
+                                <li>Firebase</li>
                                 <li>Nodejs</li>
                                 <li>MongoDb</li>
                                 <li>Express Js</li>
@@ -47,9 +41,12 @@ const MyPortFolio = () => {
                     </div>
                 </div>
 
-                <div className='md:w-[50%] mx-auto h-44 rounded-2xl my-9 border-solid border-2 border-gray-600'>
+                <div className='md:w-[50%] mx-auto h-auto py-7 px-5 rounded-2xl my-9 border-solid border-2 border-gray-600'>
                     <h1 className='text-center font-bold my-7 text-2xl'>My Project Link</h1>
-                    <a className='pl-3 underline' href="https://cargo-warehouse.web.app/" target='_blank'>https://cargo-warehouse.web.app/</a>
+                    <h3>Warehouse Project</h3>
+                    <a className=' underline mb-3 block' href="https://cargo-warehouse.web.app/" target='_blank'>https://cargo-warehouse.web.app/</a>
+                    <h3>Gym Website</h3>
+                    <a className=' underline p-0 mb-3 block' href="https://cargo-warehouse.web.app/" target='_blank'>https://cargo-warehouse.web.app/</a>
                 </div>
             </div>
       

@@ -75,7 +75,7 @@ const Login = () => {
                                         <input
                                             type="email"
                                             name='email'
-                                            className="write w-full odd:"
+                                            className=" w-full odd:"
                                             placeholder
 
                                             {...register("email", {

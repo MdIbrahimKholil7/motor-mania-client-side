@@ -3,6 +3,7 @@ import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
 import axiosPrivate from '../../api/axiosPrivate';
 import fetcher from '../../api/fetcher';
+import Loading from '../Shared/Loading';
 import DeleteProduct from './DeleteProduct';
 
 const ManageProduct = () => {
@@ -22,7 +23,7 @@ const ManageProduct = () => {
         },[])
     console.log(data)
     if (loading) {
-        return loading
+        return <Loading/>
     }
     
     const handlePageClick = data => {

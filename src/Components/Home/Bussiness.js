@@ -25,7 +25,7 @@ const Bussiness = () => {
                     />
 
                     <div className="stat-title">Countries</div>
-                    <div className="stat-value">20+</div>
+                    <div className="stat-value">{}+</div>
 
                 </div>
 
