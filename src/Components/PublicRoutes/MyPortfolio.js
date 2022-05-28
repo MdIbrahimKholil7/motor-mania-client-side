@@ -6,11 +6,11 @@ const MyPortFolio = () => {
         <div>
 
 
-            <div class="hero min-h-screen bg-base-100">
-                <div class="hero-content justify-between w-full flex-col lg:flex-row">
+            <div className="hero min-h-screen bg-base-100">
+                <div className="hero-content justify-between w-full flex-col lg:flex-row">
                     <img className='w-[300px] mt-[-100px] mx-auto' src={portfolioImg} alt='img'/>
                     <div className='w-[50%]'>
-                        <h1 class="text-4xl font-bold">My Information</h1>
+                        <h1 className="text-4xl font-bold">My Information</h1>
                         <div className='mt-7'>
                             <p className='p-0 text-[17px] text-black'>Name:Md Ibrahim Kholil</p>
                             <p className='p-0 text-[17px] text-black  '>Education:HSC</p>
