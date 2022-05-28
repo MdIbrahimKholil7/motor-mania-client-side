@@ -65,6 +65,16 @@ const Blog = () => {
                         </article>
                     </div>
                 </div>
+                <div className='md:w-[70%] w-[90%] mx-auto border-solid border-2 border-gray-600 md:px-3 px-7 py-5 rounded-xl my-9'>
+                    <h1 className='font font-bold text-2xl text-center mb-3'>Implement a search to find products by name?</h1>
+                    <div>
+                  <p className='text-[17px] mt-4 font-[500] text-black'> 
+                            
+                  const products = [name,service,description] first i will declare a function then i will select input value its onClick or onChange; then i will get the input value then i will use includes methods or compare the product name with the input value
+                  
+                  </p>
+                    </div>
+                </div>
 
             </div>
         </div>

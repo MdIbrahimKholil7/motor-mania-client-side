@@ -24,6 +24,20 @@ const ServiceCard = ({ elem }) => {
     const showMorebtn = <button className='text-gray-400' onClick={showMore}>Show More</button>
     const showLessbtn = <button className='text-gray-400' onClick={showLess}>Show Less</button>
 
+   
+
+    const productFinder=(name)=>{
+        const product=[
+            {name:'iphone',price:40000},
+            {name:'iphone6',price:340000},
+            {name:'Vivo',price:30000},
+            {name:'Samsung',price:70000},
+            {name:'Nokia',price:10000},
+        ]
+        const item=product.find(elem=>elem.name.toLowerCase()===name.toLowerCase())
+        return item
+    }
+    productFinder('vivo')
     return (
         <div>
             <div className="card lg:max-w-lg bg-base-100 shadow-2xl">
