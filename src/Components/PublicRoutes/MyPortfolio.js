@@ -47,8 +47,9 @@ const MyPortFolio = () => {
                     <a className=' underline mb-3 block text-green-600' href="https://cargo-warehouse.web.app/" target='_blank'>https://cargo-warehouse.web.app/</a>
                     <h3>Gym Website</h3>
                     <a className=' underline p-0 text-green-600 mb-3 block' href="https://gym-project-2.web.app" target='_blank'>https://gym-project-2.web.app</a>
-                    <h3>Bike Parts Website</h3>
-                    <a className=' underline p-0 text-green-600 mb-3 block' href="https://parts-mania.web.app/" target='_blank'>https://parts-mania.web.app/</a>
+
+                    <h3>Bike Parts Site</h3>
+                    <a className=' underline p-0 text-green-600 mb-3 block' href="https://parts-mania.web.app/" target='_blank' >https://parts-mania.web.app/</a>
                 </div>
             </div>
       
