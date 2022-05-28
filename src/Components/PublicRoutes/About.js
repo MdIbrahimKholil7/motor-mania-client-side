@@ -28,7 +28,7 @@ const About = () => {
                     <div className='w-[50%] '>
                         <img className='w-[360px] mx-auto' src={headLight} alt='' />
                     </div>
-                    <div className='w-[50%]'>
+                    <div className='md:w-[50%]'>
                         <h1 class="text-5xl font-bold">About PartsMania</h1>
                         <p class="py-6 p-0">The more we drive the car the better they seem to operate operate. No noise, just stopping power! Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam</p>
                         <p class="py-2 p-0 mb-7">vel illum qui dolorem eum fugiat quo voluptas nulla pariatur erit qui in ea voluptate verit qui in ea voluptate vele.</p>
