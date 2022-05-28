@@ -22,9 +22,9 @@ const PrivateRoute = () => {
     const navigate = useNavigate()
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const { servicenName, img, quantity, price, } = item || {}
-    const url = `http://localhost:5000/get-service?id=${id}&email=${user?.email}`
+    console.log(item)
+    const url = `https://secret-bayou-77535.herokuapp.com/get-service?id=${id}&email=${user?.email}`
     useEffect(() => {
-
         try {
             if (user?.email) {
                 (async () => {

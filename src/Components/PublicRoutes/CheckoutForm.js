@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react';
 import axiosPrivate from '../../api/axiosPrivate'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import Loading from '../Shared/Loading';
 const CheckoutForm = ({ order }) => {
 
     const [err, setErr] = useState('')
     const [success, setSuccess] = useState('')
     const [clientSecret, setClientSecret] = useState('')
+    const [loading,setLoading]=useState(false)
     const stripe = useStripe();
     const elements = useElements();
     const { name, total, email, id, available, quantity, _id, quantitys } = order || {}
@@ -18,13 +20,15 @@ const CheckoutForm = ({ order }) => {
     useEffect(() => {
         (async () => {
             // get client secret 
-            const { data } = await axiosPrivate.post(`http://localhost:5000/create-payment-intent`, { price: total })
+            const { data } = await axiosPrivate.post(`https://secret-bayou-77535.herokuapp.com/create-payment-intent`, { price: total })
             console.log(data)
             setClientSecret(data.clientSecret)
         })()
     }, [total])
+
     const handleSubmit = async (e) => {
         e.preventDefault()
+     
         if (!stripe || !elements) {
             return
         }
@@ -42,6 +46,7 @@ const CheckoutForm = ({ order }) => {
         
         // setProcessing(true);
         // confirm card payment
+       
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
             clientSecret,
             {
@@ -54,7 +59,7 @@ const CheckoutForm = ({ order }) => {
                 },
             },
         );
-
+    
         if (intentError) {
             setSuccess('')
             setErr(intentError?.message)
@@ -71,8 +76,9 @@ const CheckoutForm = ({ order }) => {
             }
             setSuccess('Your payment is successful')
             console.log(paymentIntent)
-
-            await fetch('http://localhost:5000/payment-complete', {
+            
+            console.log('false')
+            await fetch('https://secret-bayou-77535.herokuapp.com/payment-complete', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

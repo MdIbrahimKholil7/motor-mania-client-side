@@ -15,7 +15,7 @@ const MyOrder = () => {
     const navigate = useNavigate()
     const navigatePayment = useNavigate()
     const deleteUrl=`delete-product`
-    const { isLoading, data, refetch } = useQuery(['repoData', user], () => fetch(`http://localhost:5000/users-order-data?email=${user?.email}`, {
+    const { isLoading, data, refetch } = useQuery(['repoData', user], () => fetch(`https://secret-bayou-77535.herokuapp.com/users-order-data?email=${user?.email}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -26,7 +26,7 @@ const MyOrder = () => {
                 signOut(auth)
                 navigate('/login')
             }
-            console.log(res.status)
+      
             return res.json()
         })
     )
@@ -34,7 +34,7 @@ const MyOrder = () => {
     if (isLoading) {
         return <Loading />
     }
-    console.log(data)
+   
     return (
         <div className='mx-4 mt-7 '>
             {

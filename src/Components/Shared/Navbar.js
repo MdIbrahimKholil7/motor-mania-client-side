@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation,NavLink } from 'react-router-dom';
 import auth from '../../firebase_init';
 import TopBar from './TopBar';
 
@@ -9,9 +9,10 @@ const Navbar = ({ children }) => {
     const [user] = useAuthState(auth)
     const menu = [
         { name: 'Home', to: '/' },
-        { name: 'Dashboard', to: '/dashboard' },
+        { name: 'Dashboard', to: '/dashboard/myProfile' },
         { name: 'Blog', to: '/blog' },
-        { name: 'About', to: '/about' },
+        { name: 'About Us', to: '/about' },
+        { name: 'My Portfolio', to: '/myPortfolio' },
 
     ]
     const location=useLocation()
@@ -42,24 +43,17 @@ const Navbar = ({ children }) => {
                             <ul className="menu menu-horizontal items-center gap-x-3">
                                 {/* Navbar menu content here  */}
                                 {
-                                    menu.map(({ name, to }, index) => <Link
+                                    menu.map(({ name, to }, index) => <NavLink
+                                        className={({isActive})=>isActive?'text-red-500':''}
                                         key={index}
                                         to={to}>
                                         <li className='font-bold lg:text-[18px] xl:text-2xl'>
                                             {name}
                                         </li>
-                                    </Link>
+                                    </NavLink>
                                     )
                                 }
-                                <li>
-                                    <div className="dropdown dropdown-end dropdown-hover p-0 pr-4">
-                                        <label className='font-bold relative lg:text-[18px] xl:text-2xl shop ' tabIndex="0">Shop</label>
-                                        <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-36">
-                                            <li><a>Item 1</a></li>
-                                            <li><a>Item 2</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
+                                
 
                                 {
                                     user ? <button onClick={() => signOut(auth)} className='btn rounded-full bg-primary text-white '>LogOut</button> : <li className='font-bold p-0 hover:bg-none lg:text-[18px] xl:text-2xl'><Link to='/login'>Login</Link></li>

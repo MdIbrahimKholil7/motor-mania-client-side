@@ -18,7 +18,7 @@ const MyProfile = () => {
     const navigate=useNavigate()
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const { refetch } = useQuery(['get-profile-data', user], () => 
-    fetch(`http://localhost:5000/get-profile-data?email=${user?.email}`,{
+    fetch(`https://secret-bayou-77535.herokuapp.com/get-profile-data?email=${user?.email}`,{
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         },

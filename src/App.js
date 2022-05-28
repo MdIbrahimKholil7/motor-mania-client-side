@@ -20,7 +20,7 @@ import MakeAdmin from './Components/PublicRoutes/MakeAdmin';
 import ManageAllOrder from './Components/PublicRoutes/MangeAllOrder';
 import AddProduct from './Components/PublicRoutes/AddProduct';
 function App() {
-  console.log(publicRoute)
+ 
   return (
     <div className='max-w-7xl mx-auto'>
       <Navbar>
@@ -34,7 +34,7 @@ function App() {
             />)
           }
           <Route path='/dashBoard' element={<Dashboard />}>
-            <Route index element={<MyProfile />} />
+            <Route path='myProfile' element={<MyProfile />} />
             <Route path='myOrder' element={<MyOrder />} />
             <Route path='addReview' element={<RequireUser>
               <AddReview />

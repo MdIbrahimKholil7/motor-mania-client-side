@@ -4,7 +4,7 @@ import axiosPrivate from '../../api/axiosPrivate';
 import AdminTable from './AdminTable';
 
 const MakeAdmin = () => {
-    const { loading, data, refetch } = useQuery('get-all-user', () => axiosPrivate.get('http://localhost:5000/get-all-user'))
+    const { loading, data, refetch } = useQuery('get-all-user', () => axiosPrivate.get('https://secret-bayou-77535.herokuapp.com/get-all-user'))
     if (loading) {
         return loading
     }

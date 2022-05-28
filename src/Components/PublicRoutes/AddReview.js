@@ -11,11 +11,10 @@ const AddReview = () => {
     const [users, setUser] = useState('')
     const [loading, setLoading] = useState(false)
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
-    console.log(users)
     const [user] = useAuthState(auth)
     useEffect(() => {
         (async () => {
-            const { data } =await axiosPrivate.get(`http://localhost:5000/get-profile-data?email=${user?.email}`)
+            const { data } =await axiosPrivate.get(`https://secret-bayou-77535.herokuapp.com/get-profile-data?email=${user?.email}`)
           
                 setUser(data)
         })()

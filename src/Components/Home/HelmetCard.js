@@ -1,9 +1,12 @@
 import { StarIcon } from '@heroicons/react/solid';
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const HelmetCard = ({ elem, height }) => {
-    const { servicenName, img, price, ratings } = elem || {}
-
+    const { servicenName, img, price, ratings,_id } = elem || {}
+    const navigate=useNavigate()
+    const location=useLocation()
+    const url=`privateRoute/${_id}`
     return (
         <div>
             <div className={`card max-w-lg  shadow-md mx-2  p-0 my-2 cursor-pointer relative overflow-hidden card-parent duration-300 ease-in h-[300px]`}>
@@ -25,7 +28,9 @@ const HelmetCard = ({ elem, height }) => {
                     </div>
                 </div>
                 <div className='text-center'>
-                    <button className='absolute bottom-[-70px] duration-300 ease-in btn btn-primary order-btn mx-auto block '>Order</button>
+                    <button 
+                    onClick={
+                        ()=>navigate(`${location.pathname.includes('privateRoute') ? location.pathname=url:url}`)} className='absolute bottom-[-70px] duration-300 ease-in btn btn-primary order-btn mx-auto block '>Order</button>
                 </div>
             </div>
         </div>
