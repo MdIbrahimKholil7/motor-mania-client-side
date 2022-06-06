@@ -126,7 +126,6 @@ const CheckoutForm = ({ order }) => {
                 <button className='btn mt-5 text-white hover:bg-[#12196cfa] bg-[#12196cfa]' type="submit" disabled={!stripe || !elements || !clientSecret}>
                     Pay
                 </button>
-              
                 {
                     err && <small className='text-red-500 mt-7 block'>{err}</small>
                 }

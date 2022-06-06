@@ -29,7 +29,6 @@ const MyProfile = () => {
                 navigate('/login')
             }
             return res.json()}
-            
             )
         .then(data => setProfile(data))
     )
@@ -40,7 +39,6 @@ const MyProfile = () => {
         console.log(event.target.files[0])
         const image = event.target.files[0]
         const url = `https://api.imgbb.com/1/upload?key=b0218fca63a2d42f3b150732dddf9450`
-
         const formData = new FormData()
         formData.append('image', image)
         try {
@@ -72,6 +70,7 @@ const MyProfile = () => {
             imgUrl,
             name:user?.displayName
         }
+        
         fetcher.put(`profile-data/${profile?._id}`, users)
             .then(res => {
                 if (res.data.acknowledged) {
