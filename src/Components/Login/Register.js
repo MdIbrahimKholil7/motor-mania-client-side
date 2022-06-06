@@ -35,7 +35,7 @@ const Login = () => {
     if (token) {
         navigate(from, { replace: true })
     }
-    // submit function 
+    // submit function  
     const onSubmit = async (data) => {
         const { name, email, password, confirmPassword, } = data
         if (password !== confirmPassword) {
