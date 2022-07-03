@@ -12,8 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import useToken from '../../api/useToken';
 const Login = () => {
     const [logError, setLogError] = useState('')
-    const [user]=useAuthState(auth)
-    const [token]=useToken(user)
+    const [user] = useAuthState(auth)
+    const [token] = useToken(user)
     // console.log(user)
     const [email, setEmail] = useState('')
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
@@ -29,6 +29,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+  
     useEffect(() => {
         if (error) {
             switch (error?.code) {
