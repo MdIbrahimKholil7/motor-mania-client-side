@@ -10,7 +10,7 @@ const MangeAllOrder = () => {
     const [count, setCount] = useState(0)
     const [page, setPage] = useState(0)
     const [size, setSize] = useState(5)
-    const [loadings,setLoading]=useState(true)
+  
     const { loading, data, refetch } = useQuery(['get-all-paid',page,size], () => axiosPrivate.get(`https://secret-bayou-77535.herokuapp.com/get-all-users-order?page=${page}&size=${size}`)
     /* .then(res=>{
         setLoading(false)

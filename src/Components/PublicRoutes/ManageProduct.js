@@ -57,7 +57,7 @@ const ManageProduct = () => {
                                 <td>{quantity}</td>
                                 <td>
 
-                                    <label onClick={() => setOpenModal(_id)} for="delete-modal" className='btn btn-primary'>Delete</label>
+                                    <label onClick={() => setOpenModal(_id)} for="delete-modal" className='btn btn-primary '>Delete</label>
                                 </td>
                             </tr>)
                         }

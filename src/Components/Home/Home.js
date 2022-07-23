@@ -1,5 +1,6 @@
-import React from 'react';
-import Footer from '../Shared/Footer';
+import React, { Suspense } from 'react';
+import loading from '../../assets/images/loading (1).gif'
+/* import Footer from '../Shared/Footer';
 import Banner from './Banner';
 import Bussiness from './Bussiness';
 import Engine from './Engine';
@@ -9,22 +10,35 @@ import Helmet from './Helmet';
 import Parts from './Parts';
 import Services from './Services';
 import ShippingDetails from './ShippingDetails';
-import Testimonials from './Testimonials';
+import Testimonials from './Testimonials'; */
+const Footer = React.lazy(() => import('../Shared/Footer'))
+const Banner = React.lazy(() => import('./Banner'))
+const Bussiness = React.lazy(() => import('./Bussiness'))
+const Engine = React.lazy(() => import('./Engine'))
+const HeaderProduct = React.lazy(() => import('./HeaderProduct'))
+const Headlight = React.lazy(() => import('./Headlight'))
+const Helmet = React.lazy(() => import('./Helmet'))
+const Parts = React.lazy(() => import('./Parts'))
+const Services = React.lazy(() => import('./Services'))
+const ShippingDetails = React.lazy(() => import('./ShippingDetails'))
+const Testimonials = React.lazy(() => import('./Testimonials'))
 
 const Home = () => {
     return (
         <div className=''>
-            <Banner/>
-            <HeaderProduct/>
-            <ShippingDetails/>
-            <Services/>
-            <Engine/>
-            <Helmet/>
-            <Headlight/>
-            <Parts/>
-            <Bussiness/>
-            <Testimonials/>
-            
+            <Suspense fallback={<div><img className='w-full h-screen' src={loading} alt="loading" /></div>}>
+                <Banner />
+                <HeaderProduct />
+                <ShippingDetails />
+                <Services />
+                <Engine />
+                <Helmet />
+                <Headlight />
+                <Parts />
+                <Bussiness />
+                <Testimonials />
+            </Suspense>
+
         </div>
     );
 };

@@ -24,6 +24,8 @@ const PrivateRoute = () => {
     const { servicenName, img, quantity, price, } = item || {}
     console.log(item)
     const url = `https://secret-bayou-77535.herokuapp.com/get-service?id=${id}&email=${user?.email}`
+    
+    // data fetching 
     useEffect(() => {
         try {
             if (user?.email) {

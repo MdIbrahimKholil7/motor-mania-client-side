@@ -87,7 +87,6 @@ const CheckoutForm = ({ order }) => {
             })
                 .then(res => {
                     if (paymentIntent.id) {
-                      
                         Swal.fire({
                             position: 'top-center',
                             icon: 'success',
@@ -96,6 +95,7 @@ const CheckoutForm = ({ order }) => {
                             timer: 3000
                         })
                     }
+
                     console.log(res)
                     return res.json()
                 })
