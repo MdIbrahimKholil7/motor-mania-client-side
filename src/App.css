@@ -168,4 +168,5 @@
 
 .slick-prev:before {
   color: black !important;
+  display: none;
 }
