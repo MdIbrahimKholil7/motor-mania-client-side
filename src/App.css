@@ -124,21 +124,23 @@
 
   .page-btn {
     padding: .7rem;
-    margin: 0 .6rem;
+    margin: 0 .4rem;
   }
 
   .previous {
     color: #fff;
     background-color: rgb(9, 177, 244);
-    padding: .7rem 1.2rem;
+    padding: .7rem .7rem;
     border-radius: .5rem;
+    font-size: 12px;
+    margin-top: 3px;
   }
 
   .active-btn {
     background: rgb(9, 177, 244);
     color: #fff;
     border-radius: .3rem;
-    /* padding: 1rem; */
+    padding: .5rem .7rem;
   }
 
   .link-btn {

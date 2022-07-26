@@ -19,6 +19,7 @@ const AddReview = () => {
                 setUser(data)
         })()
     }, [user])
+    console.log(loading)
     if(loading){
         return <Loading/>
     }

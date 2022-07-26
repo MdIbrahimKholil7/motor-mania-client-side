@@ -19,15 +19,15 @@ const DashboardSidebar = ({ children }) => {
                 <label for="dashboard-sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto  bg-base-100 w-[220px] text-base-content">
                     {/*  <!-- Sidebar content here --> */}
-                    <li className='font font-bold text-xl'><NavLink
+                    <li className='font font-bold my-4 md:my-1 text-xl'><NavLink
                     className={({isActive})=>isActive?'text-red-500':''}
                      to='/dashboard/myProfile'>My Profile</NavLink></li>
                     {
                        !admin && <>
-                            <li className='font font-bold text-xl'><NavLink
+                            <li className='font font-bold my-4 md:my-1 text-xl'><NavLink
                               className={({isActive})=>isActive?'text-red-500':''}
                             to='/dashboard/myOrder'>My Order</NavLink></li>
-                            <li className='font font-bold text-xl'><NavLink 
+                            <li className='font font-bold my-4 md:my-1 text-xl'><NavLink 
                               className={({isActive})=>isActive?'text-red-500':''}
                             to='/dashboard/addReview'>Add Review</NavLink></li>
                         </>
@@ -35,16 +35,16 @@ const DashboardSidebar = ({ children }) => {
                     {
                         admin && <>
                           
-                            <li className='font font-bold text-xl'><NavLink
+                            <li className='font font-bold my-4 md:my-1 text-xl'><NavLink
                              className={({isActive})=>isActive?'text-red-500':''}
                             to='/dashboard/manageProduct'>Manage Product</NavLink></li>
-                            <li className='font font-bold text-xl'><NavLink
+                            <li className='font font-bold my-4 md:my-1 text-xl'><NavLink
                              className={({isActive})=>isActive?'text-red-500':''}
                             to='/dashboard/makeAdmin'>Make Admin</NavLink></li>
-                            <li className='font font-bold text-xl'><NavLink
+                            <li className='font font-bold my-4 md:my-1 text-xl'><NavLink
                              className={({isActive})=>isActive?'text-red-500':''}
                             to='/dashboard/manageAllOrder'>Manage All Order</NavLink></li>
-                            <li className='font font-bold text-xl'><NavLink
+                            <li className='font font-bold my-4 md:my-1 text-xl'><NavLink
                              className={({isActive})=>isActive?'text-red-500  bg-base-100':''}
                             to='/dashboard/addProduct'>Add Product</NavLink></li>
                            

@@ -104,7 +104,7 @@ const MangeAllOrder = () => {
                         breakLabel={'...'}
                         pageCount={count}
                         marginPagesDisplayed={1}
-                        pageRangeDisplayed={2}
+                        pageRangeDisplayed={1}
                         onPageChange={handlePageClick}
                         containerClassName={'paginateContainer'}
                         pageClassName={'page-btn'}

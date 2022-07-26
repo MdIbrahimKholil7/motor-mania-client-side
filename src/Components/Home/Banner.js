@@ -14,7 +14,7 @@ const Banner = () => {
             <div className="hero-overlay bg-[#000000a7] bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md text-white">
-                    <h1 className="mb-5 text-5xl font-bold">Find The Best Parts For Your Vehicle</h1>
+                    <h1 className="mb-5 md:text-5xl text-3xl font-bold">Find The Best Parts For Your Vehicle</h1>
                     <p className="mb-5 text-white">Browse our range of Gore-Tex motorcycle clothing including Rukka, Dainese, Richa, Alpinestars, and more</p>
                     <PrimaryBtn>Shop Now</PrimaryBtn>
                 </div>
