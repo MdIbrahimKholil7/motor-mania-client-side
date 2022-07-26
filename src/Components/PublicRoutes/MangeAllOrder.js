@@ -44,7 +44,7 @@ const MangeAllOrder = () => {
     return (
         <div className='bg-base-300 '>
             <div className="overflow-x-auto px-4 py-9">
-                <table className="table table-zebra w-full">
+                <table className="table table-zebra w-full overflow-x-auto">
 
                     <thead>
                         <tr className='text-center'>
@@ -63,7 +63,7 @@ const MangeAllOrder = () => {
                                 key={_id}
                                 className="text-center"
                             >
-                                <th>{index + 1}</th>
+                                <th className='id'>{index + 1}</th>
                                 <th>{name}</th>
                                 <th>{productName}</th>
                                 <th>{email}</th>

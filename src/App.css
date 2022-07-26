@@ -173,3 +173,8 @@
   color: black !important;
   display: none;
 }
+
+
+.id{
+  position: static !important;
+}
