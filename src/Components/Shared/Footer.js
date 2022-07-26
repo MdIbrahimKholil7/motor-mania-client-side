@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer >
             <div className='bg-black '>
-                <div className="footer p-10 app  text-white justify-items-center">
+                <div className="footer p-10 app  text-white lg:justify-items-center justify-items-start">
                     <div>
                         <span className="footer-title text-xl text-white opacity-100">Get In Touch</span>
                         <div className='mb-4'>

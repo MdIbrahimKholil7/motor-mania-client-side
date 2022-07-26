@@ -9,7 +9,7 @@ const Bussiness = () => {
             <div className='app'>
 
             <div className=" grid sm:grid-cols-2 md:grid-cols-4 justify-items-center rounded-none py-9  w-full px-9">
-                <div className="stat pl-20 md:pl-0 flex justify-center items-center">
+                <div className="stat  md:pl-0 flex justify-center items-center">
                     <div className=''>
                         < FaFlag
                             className='text-3xl text-center'
@@ -36,7 +36,7 @@ const Bussiness = () => {
 
                 </div>
 
-                <div className="stat pl-20 md:pl-0 flex justify-center items-center">
+                <div className="stat  md:pl-0 flex justify-center items-center">
                     <div className=''>
                         < FaCompass
                             className='text-3xl text-center'
@@ -61,7 +61,7 @@ const Bussiness = () => {
                     </div>
                 </div>
 
-                <div className="stat pl-20 md:pl-0 flex justify-center items-center">
+                <div className="stat  md:pl-0 flex justify-center items-center">
                     <div className=''>
                         < FaUserFriends
                             className='text-3xl text-center'
@@ -85,7 +85,7 @@ const Bussiness = () => {
 
                     </div>
                 </div>
-                <div className="stat pl-20 md:pl-0  flex justify-center items-center">
+                <div className="stat  md:pl-0  flex justify-center items-center">
                     <div>
                         < FaRegBookmark
                             className='text-3xl text-center'
