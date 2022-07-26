@@ -86,13 +86,13 @@ const MyProfile = () => {
             refetch()
     }
     return (
-        <div className='bg-base-200  py-7'>
+        <div className='bg-base-200  py-[70px] '>
             <div>
                 <div>
                     <img className='w-[150px] object-cover rounded-full mx-auto' src={img ? img : users} alt="" />
                 </div>
                 <form
-                    className='w-[70%] mx-auto mt-14 justify-center flex-col items-center'
+                    className='w-[70%] mx-auto mt-14 mb-[100px] justify-center flex-col items-center'
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     <div className="form-control w-full">

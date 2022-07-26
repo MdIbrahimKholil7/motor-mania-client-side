@@ -10,7 +10,7 @@ const DashboardSidebar = ({ children }) => {
     return (
         <div className="drawer drawer-mobile z-40">
             <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col mt-[62px] min-h-screen">
+            <div className="drawer-content flex flex-col mt-[62px] mb-[140px] min-h-screen">
                 {/*  <!-- Page content here --> */}
                 {children}
                 
@@ -24,10 +24,10 @@ const DashboardSidebar = ({ children }) => {
                      to='/dashboard/myProfile'>My Profile</NavLink></li>
                     {
                        !admin && <>
-                            <li className='font font-bold my-4 md:my-1 text-xl'><NavLink
+                            <li className='font font-bold my-2 md:my-1 text-xl'><NavLink
                               className={({isActive})=>isActive?'text-red-500':''}
                             to='/dashboard/myOrder'>My Order</NavLink></li>
-                            <li className='font font-bold my-4 md:my-1 text-xl'><NavLink 
+                            <li className='font font-bold my-2 md:my-1 text-xl'><NavLink 
                               className={({isActive})=>isActive?'text-red-500':''}
                             to='/dashboard/addReview'>Add Review</NavLink></li>
                         </>

@@ -64,7 +64,7 @@ const Login = () => {
         reset()
     }
     return (
-        <div className=''>
+        <div className='py-20'>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content justify-between w-full flex-col lg:flex-row-reverse lg:px-24 px-4 ">
                     <div className="card flex-shrink-0 w-full sm:w-[440px] shadow-2xl bg-base-100">
@@ -76,7 +76,7 @@ const Login = () => {
                                         <input
                                             type="email"
                                             name='email'
-                                            className=" w-full odd:"
+                                            className=" w-full "
                                             placeholder
 
                                             {...register("email", {

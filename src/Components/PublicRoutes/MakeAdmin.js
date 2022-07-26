@@ -9,7 +9,7 @@ const MakeAdmin = () => {
         return loading
     }
     return (
-        <div>
+        <div className='py-[90px]'>
             <div className='px-4'>
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">

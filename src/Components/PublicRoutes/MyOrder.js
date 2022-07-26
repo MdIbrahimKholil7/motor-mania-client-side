@@ -36,7 +36,7 @@ const MyOrder = () => {
     }
    
     return (
-        <div className='mx-4 mt-7 '>
+        <div className='mx-4 mt-7 py-[50px]'>
             {
                 data?.length ? <div className="">
                     <table className="table w-full">

@@ -42,8 +42,8 @@ const MangeAllOrder = () => {
         refetch()
     }
     return (
-        <div className='bg-base-300 '>
-            <div className="overflow-x-auto px-4 py-9">
+        <div className='bg-base-300 py-[90px]'>
+            <div className="overflow-x-auto px-4 py-20">
                 <table className="table table-zebra w-full overflow-x-auto">
 
                     <thead>

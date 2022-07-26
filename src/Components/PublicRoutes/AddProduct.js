@@ -71,7 +71,7 @@ const AddProduct = () => {
 
 
     return (
-        <div className='bg-base-200 py-9'>
+        <div className='bg-base-200 py-[90px]'>
             <div>
                 <form
                     className='w-[70%] mx-auto mt-14 justify-center flex-col items-center'

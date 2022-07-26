@@ -47,7 +47,7 @@ const AddReview = () => {
         reset()
     }
     return (
-        <div className='bg-base-200 min-h-screen'>
+        <div className='bg-base-200 min-h-screen pt-9'>
             <div>
                 <h1 className='text-2xl text-center font font-bold my-9'>Add Your Review</h1>
                 <div className='w-[70%] mx-auto '>

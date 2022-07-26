@@ -30,7 +30,7 @@ const ManageProduct = () => {
         setPage(data.selected)
     }
     return (
-        <div className='bg-base-300'>
+        <div className='bg-base-300 py-[90px]'>
             <div className="overflow-x-auto px-3 py-12">
                 <table className="table table-zebra w-full">
 

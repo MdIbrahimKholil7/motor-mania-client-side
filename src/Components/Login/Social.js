@@ -25,9 +25,9 @@ const Social = () => {
                 <button className="btn hover:bg-white bg-white text-black"
                 ><img className=' mr-3' src={google} alt="google" /> Login With Google</button>
             </div>
-            <div className="form-control mt-6">
+           {/*  <div className="form-control mt-6">
                 <button className="btn hover:bg-white bg-white text-black"><img className=' mr-3' src={facebook} alt="google" /> Login With Facebook</button>
-            </div>
+            </div> */}
         </div>
     );
 };

@@ -37,7 +37,7 @@ const UpdateProfile = () => {
         reset()
     }
     return (
-        <div className='bg-base-200 py-14'>
+        <div className='bg-base-200 pb-[120px] pt-[30px]'>
             <form
                 className='w-[70%] mx-auto mt-14 justify-center flex-col items-center'
                 onSubmit={handleSubmit(onSubmit)}

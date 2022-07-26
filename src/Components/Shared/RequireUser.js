@@ -8,6 +8,7 @@ import Loading from './Loading';
 
 const RequireUser = ({children}) => {
     const [user,loading,error]=useAuthState(auth)
+    console.log(user)
     const [admin,setAdminLoading]=useAdmin(user)
     const location=useLocation()
     if(loading || setAdminLoading){
