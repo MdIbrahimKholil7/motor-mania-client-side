@@ -1,5 +1,25 @@
+/* .drawer-toggle ~ .drawer-content {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0;  Remove scrollbar space
+  background: transparent;  Optional: just make scrollbar invisible
+}
+Optional: show position indicator in red
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+ */
+
 .font {
   font-family: 'Oswald', sans-serif;
+}
+
+.app {
+  max-width: 1386px;
+  /* padding: 0 48px; */
+  margin:0 auto;
 }
 
 .shop::after {
@@ -175,6 +195,6 @@
 }
 
 
-.id{
+.id {
   position: static !important;
 }

@@ -5,8 +5,8 @@ const Footer = () => {
     const date=new Date()
     const year=date.getFullYear()
     return (
-        <footer >
-            <div className="footer p-10  bg-black text-white justify-items-start">
+        <footer>
+            <div className="footer p-10  bg-black text-white justify-items-center">
                 <div>
                     <span className="footer-title text-xl text-white opacity-100">Get In Touch</span>
                     <div className='mb-4'>

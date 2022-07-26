@@ -48,7 +48,7 @@ const Testimonials = () => {
         ]
     };
     return (
-        <div className='mt-12 px-4 mb-20'>
+        <div className='my-32 px-4 mb-20'>
             <div className='flex justify-between items-center'>
                 <div>
                     <h1 className='text-2xl font-bold'>Testimonial</h1>

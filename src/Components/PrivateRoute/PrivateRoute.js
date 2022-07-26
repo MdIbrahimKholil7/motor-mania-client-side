@@ -107,7 +107,7 @@ const PrivateRoute = () => {
         reset()
     }
     return (
-        <div>
+        <div className=''> 
             <div className="hero min-h-[80vh] mb-14">
                 <div className="hero-content w-full justify-between flex-col lg:flex-row">
                     <div className='w-[450px] flex justify-center items-center '>

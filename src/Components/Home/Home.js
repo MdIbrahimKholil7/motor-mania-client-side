@@ -1,16 +1,5 @@
 import React, { Suspense } from 'react';
 import loading from '../../assets/images/loading (1).gif'
-/* import Footer from '../Shared/Footer';
-import Banner from './Banner';
-import Bussiness from './Bussiness';
-import Engine from './Engine';
-import HeaderProduct from './HeaderProduct';
-import Headlight from './Headlight';
-import Helmet from './Helmet';
-import Parts from './Parts';
-import Services from './Services';
-import ShippingDetails from './ShippingDetails';
-import Testimonials from './Testimonials'; */
 const Footer = React.lazy(() => import('../Shared/Footer'))
 const Banner = React.lazy(() => import('./Banner'))
 const Bussiness = React.lazy(() => import('./Bussiness'))
@@ -23,6 +12,7 @@ const Services = React.lazy(() => import('./Services'))
 const ShippingDetails = React.lazy(() => import('./ShippingDetails'))
 const Testimonials = React.lazy(() => import('./Testimonials'))
 
+
 const Home = () => {
     return (
         <div className=''>
@@ -30,13 +20,19 @@ const Home = () => {
                 <Banner />
                 <HeaderProduct />
                 <ShippingDetails />
-                <Services />
-                <Engine />
-                <Helmet />
+                <div className='app'>
+                    <Services />
+                    <Engine />
+                    <Helmet />
+                </div>
                 <Headlight />
-                <Parts />
+                <div className='app'>
+                    <Parts />
+                </div>
                 <Bussiness />
-                <Testimonials />
+                <div className='app my-40'>
+                    <Testimonials />
+                </div>
             </Suspense>
 
         </div>
