@@ -63,14 +63,14 @@ const MangeAllOrder = () => {
                                 key={_id}
                                 className="text-center"
                             >
-                                <th className='id'>{index + 1}</th>
-                                <th>{name}</th>
-                                <th>{productName}</th>
-                                <th>{email}</th>
-                                <th>{
+                                <td className='id'>{index + 1}</td>
+                                <td>{name}</td>
+                                <td>{productName}</td>
+                                <td>{email}</td>
+                                <td>{
                                     paid ? `${status ? 'Shipped' : 'Pending'}` : 'Not Paid'
-                                }</th>
-                                <th>{
+                                }</td>
+                                <td>{
 
                                     status ? <small>Already Shipped</small> : <>
                                         {paid ? <button
@@ -81,7 +81,7 @@ const MangeAllOrder = () => {
                                                 className='btn btn-primary'
                                             >Delete</label>}
                                     </>
-                                }</th>
+                                }</td>
 
 
                             </tr>)
