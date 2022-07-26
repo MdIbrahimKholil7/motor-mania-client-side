@@ -12,7 +12,7 @@ const Navbar = ({ children }) => {
         { name: 'Dashboard', to: '/dashboard/myProfile' },
         { name: 'Blog', to: '/blog' },
         { name: 'About Us', to: '/about' },
-        { name: 'My Portfolio', to: '/myPortfolio' },
+        // { name: 'My Portfolio', to: '/myPortfolio' },
 
     ]
     const location = useLocation()

@@ -10,7 +10,7 @@ const DashboardSidebar = ({ children }) => {
     return (
         <div className="drawer drawer-mobile z-40">
             <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col  min-h-screen">
+            <div className="drawer-content flex flex-col mt-[62px] min-h-screen">
                 {/*  <!-- Page content here --> */}
                 {children}
                 
