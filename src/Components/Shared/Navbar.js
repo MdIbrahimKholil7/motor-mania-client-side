@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useLocation, NavLink } from 'react-router-dom';
 import auth from '../../firebase_init';
 import TopBar from './TopBar';
-
+import { motion } from 'framer-motion'
 const Navbar = ({ children }) => {
     const [user] = useAuthState(auth)
     const menu = [
@@ -16,7 +16,24 @@ const Navbar = ({ children }) => {
 
     ]
     const location = useLocation()
-
+    const logoVariants = {
+        show: {
+            y: 0,
+            transition: {
+                delay: .2,
+                ease: 'linear',
+                duration: .4,
+                type: 'spring',
+                stiffness: 220
+            },
+            opacity: 1
+        },
+        hide: {
+            y: -15,
+            opacity: 0,
+            delay: .5,
+        }
+    }
     return (
         <nav className='w-full '>
             {/* <TopBar/> */}
@@ -35,7 +52,12 @@ const Navbar = ({ children }) => {
                                         </label>
                                     }
 
-                                    <div className="flex-1 text-4xl font-bold font">Parts<span className='text-primary '>Mania</span></div>
+                                    <motion.div
+                                            variants={logoVariants}
+                                            animate='show'
+                                            initial='hide'
+                                        className="flex-1 text-4xl font-bold font">Parts<span className='text-primary '>Mania</span>
+                                    </motion.div>
                                     <div className="flex-none lg:hidden">
                                         <label for="my-drawer-3" className="btn btn-square btn-ghost  m-0 border-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -73,7 +95,6 @@ const Navbar = ({ children }) => {
                     </div>
                     <div className="drawer-side">
                         <label for="my-drawer-3" className="drawer-overlay"></label>
-                        {/* <div className="flex-1 text-4xl font-bold font">Parts<span className='text-primary '>Mania</span></div> */}
 
                         <ul className="menu items-center pt-14 p-4 overflow-y-auto w-80 bg-base-100">
                             {/* Sidebar content here  */}
