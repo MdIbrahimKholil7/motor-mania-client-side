@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import axiosPrivate from '../../api/axiosPrivate';
+import AdminLoading from '../Shared/AdminLoading';
+import Loading from '../Shared/Loading';
 import AdminTable from './AdminTable';
 
 const MakeAdmin = () => {
     const { loading, data, refetch } = useQuery('get-all-user', () => axiosPrivate.get('https://secret-bayou-77535.herokuapp.com/get-all-user'))
+
     if (loading) {
-        return loading
+        return <Loading/>
     }
     return (
         <div className='py-[90px]'>

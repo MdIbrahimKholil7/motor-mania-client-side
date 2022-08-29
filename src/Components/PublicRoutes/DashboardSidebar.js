@@ -19,7 +19,7 @@ const DashboardSidebar = ({ children }) => {
                 <label for="dashboard-sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto  bg-base-100 w-[220px] text-base-content">
                     {/*  <!-- Sidebar content here --> */}
-                    <li className='font font-bold my-4 md:my-1 text-xl'><NavLink
+                    <li className='font font-bold my-4 mt-20 text-xl'><NavLink
                     className={({isActive})=>isActive?'text-red-500':''}
                      to='/dashboard/myProfile'>My Profile</NavLink></li>
                     {

@@ -4,6 +4,7 @@ import axiosPrivate from '../../api/axiosPrivate';
 import users from '../../assets/images/user.png'
 import auth from '../../firebase_init';
 import useAdmin from '../../hooks/useAdmin';
+import AdminLoading from '../Shared/AdminLoading';
 import Loading from '../Shared/Loading';
 
 const AdminTable = ({ userData, index, refetch }) => {
@@ -12,7 +13,8 @@ const AdminTable = ({ userData, index, refetch }) => {
     const { email, imgUrl, name, role, _id } = userData
     const [loading,setLoading]=useState(false)
     if(loading){
-        return <Loading/>
+        console.log('click')
+        return <AdminLoading/>
     }
     const makeAdmin = async () => {
        if(admin){
@@ -25,12 +27,12 @@ const AdminTable = ({ userData, index, refetch }) => {
             setLoading(true)
             const {data}=await axiosPrivate.delete(`https://secret-bayou-77535.herokuapp.com/delete-admin/${_id}`)
             setLoading(false)
-            console.log(data)
+            // console.log(data)
            }
     }
     return (
         <>
-            <tr className='text-center'>
+            <tr className='text-center relative'>
                 <td>{index + 1}</td>
                 <td>
                     <div className="flex items-center justify-center space-x-3">
