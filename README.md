@@ -14,7 +14,6 @@
 -
 ### Which technology i have used in the site
 - html & css3
-- bootstrap 5
 - tailwind css
 - javascript 
 - react js
