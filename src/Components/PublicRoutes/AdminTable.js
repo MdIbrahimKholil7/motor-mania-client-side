@@ -18,14 +18,14 @@ const AdminTable = ({ userData, index, refetch }) => {
     }
     const makeAdmin = async () => {
        if(admin){
-       await axiosPrivate.patch(`https://secret-bayou-77535.herokuapp.com/make-admin/${_id}`)
+       await axiosPrivate.patch(`https://motor-mania-server.onrender.com/make-admin/${_id}`)
        }
         refetch()
     }
     const handleDelete=async()=>{
         if(admin){
             setLoading(true)
-            const {data}=await axiosPrivate.delete(`https://secret-bayou-77535.herokuapp.com/delete-admin/${_id}`)
+            const {data}=await axiosPrivate.delete(`https://motor-mania-server.onrender.com/delete-admin/${_id}`)
             setLoading(false)
             // console.log(data)
            }

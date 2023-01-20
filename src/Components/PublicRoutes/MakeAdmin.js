@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading';
 import AdminTable from './AdminTable';
 
 const MakeAdmin = () => {
-    const { loading, data, refetch } = useQuery('get-all-user', () => axiosPrivate.get('https://secret-bayou-77535.herokuapp.com/get-all-user'))
+    const { loading, data, refetch } = useQuery('get-all-user', () => axiosPrivate.get('https://motor-mania-server.onrender.com/get-all-user'))
 
     if (loading) {
         return <Loading/>

@@ -12,7 +12,7 @@ const ManageProduct = () => {
     const [size, setSize] = useState(5)
     const [openModal, setOpenModal] = useState(null)
     const deleteUrl = `delete-service`
-    const { loading, data, refetch } = useQuery(['get-all-product',page,size], () => axiosPrivate.get(`https://secret-bayou-77535.herokuapp.com/get-all-product?page=${page}&size=${size}`))
+    const { loading, data, refetch } = useQuery(['get-all-product',page,size], () => axiosPrivate.get(`https://motor-mania-server.onrender.com/get-all-product?page=${page}&size=${size}`))
     useEffect(()=>{
         (async()=>{
             const {data}=await fetcher.get(`get-all-product-count`)

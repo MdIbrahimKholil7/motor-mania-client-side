@@ -7,7 +7,7 @@ const Services = () => {
     const [data, setData] = useState([])
     useEffect(() => {
         (async () => {
-            const get = await fetcher.get('service-get')
+            const get = await fetcher.get('/service-get')
             setData(get.data)
         })()
     }, [])

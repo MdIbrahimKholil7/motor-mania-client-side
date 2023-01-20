@@ -15,7 +15,7 @@ const MyOrder = () => {
     const navigate = useNavigate()
     const navigatePayment = useNavigate()
     const deleteUrl=`delete-product`
-    const { isLoading, data, refetch } = useQuery(['repoData', user], () => fetch(`https://secret-bayou-77535.herokuapp.com/users-order-data?email=${user?.email}`, {
+    const { isLoading, data, refetch } = useQuery(['repoData', user], () => fetch(`https://motor-mania-server.onrender.com/users-order-data?email=${user?.email}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

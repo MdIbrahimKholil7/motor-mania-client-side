@@ -14,7 +14,7 @@ const AddReview = () => {
     const [user] = useAuthState(auth)
     useEffect(() => {
         (async () => {
-            const { data } =await axiosPrivate.get(`https://secret-bayou-77535.herokuapp.com/get-profile-data?email=${user?.email}`)
+            const { data } =await axiosPrivate.get(`https://motor-mania-server.onrender.com/get-profile-data?email=${user?.email}`)
           
                 setUser(data)
         })()

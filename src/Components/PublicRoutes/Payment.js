@@ -9,7 +9,7 @@ import CheckoutForm from './CheckoutForm';
 const stripePromise = loadStripe(process.env.REACT_APP_stripe_key);
 const Payment = () => {
     const { id } = useParams()
-    const url = `https://secret-bayou-77535.herokuapp.com/get-payment/${id}`
+    const url = `https://motor-mania-server.onrender.com/get-payment/${id}`
     const { data, isLoading } = useQuery('get-order', () => fetcher.get(url))
     const { productName, price, total, quantity, img } = data?.data || {}
     if (isLoading) {

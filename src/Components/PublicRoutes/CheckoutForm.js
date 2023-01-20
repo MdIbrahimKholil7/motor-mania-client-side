@@ -20,7 +20,7 @@ const CheckoutForm = ({ order }) => {
     useEffect(() => {
         (async () => {
             // get client secret 
-            const { data } = await axiosPrivate.post(`https://secret-bayou-77535.herokuapp.com/create-payment-intent`, { price: total })
+            const { data } = await axiosPrivate.post(`https://motor-mania-server.onrender.com/create-payment-intent`, { price: total })
             console.log(data)
             setClientSecret(data.clientSecret)
         })()
@@ -78,7 +78,7 @@ const CheckoutForm = ({ order }) => {
             console.log(paymentIntent)
             
             console.log('false')
-            await fetch('https://secret-bayou-77535.herokuapp.com/payment-complete', {
+            await fetch('https://motor-mania-server.onrender.com/payment-complete', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

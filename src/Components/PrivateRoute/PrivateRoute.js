@@ -23,7 +23,7 @@ const PrivateRoute = () => {
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const { servicenName, img, quantity, price, } = item || {}
     console.log(item)
-    const url = `https://secret-bayou-77535.herokuapp.com/get-service?id=${id}&email=${user?.email}`
+    const url = `https://motor-mania-server.onrender.com/get-service?id=${id}&email=${user?.email}`
     
     // data fetching 
     useEffect(() => {
